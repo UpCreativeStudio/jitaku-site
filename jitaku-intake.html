@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intake — JITAKU INTERIOR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+JP:wght@300;400&family=Inter:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --g:#1e2e26;--gd:#16231c;--gm:#243829;
+  --cr:#f5f0e4;--crd:#e8e0cc;
+  --au:#c7a878;--aul:#d8bc96;--aud:#a07f4a;
+  --wh:#fdfcf8;--ink:#0f1c14;
+  --mu:rgba(245,240,228,0.65)
+}
+body{font-family:'Inter',Helvetica,Arial,sans-serif;background:var(--cr);color:var(--ink);overflow-x:hidden;min-height:100vh}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 64px;background:rgba(30,46,38,.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(199,168,120,.18)}
+.lm{display:flex;flex-direction:column;align-items:flex-start;text-decoration:none;line-height:1;gap:2px}
+.lk{font-family:'Noto Serif JP',serif;font-size:20px;font-weight:300;color:var(--au);line-height:1}
+.ln{font-family:'Playfair Display',Georgia,serif;font-size:15px;letter-spacing:.22em;text-transform:uppercase;line-height:1.1;color:var(--wh)}
+.ls{font-family:'DM Sans',sans-serif;font-size:7px;letter-spacing:.45em;text-transform:uppercase;color:var(--au)}
+.nav-back{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mu);text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:10px}
+.nav-back:hover{color:var(--au)}
+.nav-back::before{content:'←';font-size:14px;letter-spacing:0}
+
+/* PROGRESS BAR */
+.progress-wrap{padding-top:76px;background:var(--gd);border-bottom:1px solid rgba(199,168,120,.12)}
+.progress-inner{display:flex;align-items:stretch;max-width:100%}
+.progress-step{flex:1;padding:18px 24px;display:flex;align-items:center;gap:12px;border-right:1px solid rgba(199,168,120,.1);cursor:pointer;transition:background .2s;position:relative}
+.progress-step:last-child{border-right:none}
+.progress-step.active{background:rgba(199,168,120,.08)}
+.progress-step.done{cursor:pointer}
+.progress-step.done .ps-num{background:var(--au);color:var(--ink)}
+.ps-num{width:24px;height:24px;border-radius:50%;background:rgba(199,168,120,.15);border:1px solid rgba(199,168,120,.25);display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-size:10px;font-weight:500;color:rgba(199,168,120,.5);flex-shrink:0;transition:all .3s}
+.progress-step.active .ps-num{background:var(--au);color:var(--ink)}
+.ps-label{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(199,168,120,.35);transition:color .3s}
+.progress-step.active .ps-label{color:var(--au)}
+.progress-step.done .ps-label{color:rgba(199,168,120,.55)}
+.progress-bar-line{height:2px;background:var(--gm);position:relative;overflow:hidden}
+.progress-bar-fill{height:100%;background:var(--au);transition:width .5s ease;width:0%}
+
+/* MAIN LAYOUT */
+.intake-wrap{min-height:calc(100vh - 76px - 90px);display:flex;align-items:stretch}
+.intake-left{width:380px;flex-shrink:0;background:var(--g);padding:80px 60px;display:flex;flex-direction:column;justify-content:space-between;position:sticky;top:166px;height:calc(100vh - 166px)}
+.intake-right{flex:1;padding:80px;max-width:700px}
+
+.step-eyebrow{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--au);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.step-eyebrow::before{content:'';width:32px;height:1px;background:var(--au)}
+.step-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(22px,2.5vw,32px);font-weight:700;color:var(--wh);line-height:1.15;margin-bottom:16px;font-style:normal;letter-spacing:.01em}
+.step-desc{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:14px;color:var(--mu);line-height:1.8}
+.step-hint{margin-top:40px;padding-top:32px;border-top:1px solid rgba(199,168,120,.12)}
+.step-hint p{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:12px;color:rgba(199,168,120,.45);line-height:1.7}
+
+/* FORM STEPS */
+.step{display:none}
+.step.active{display:block}
+
+/* FIELD STYLES */
+.field-group{margin-bottom:32px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:32px}
+.field-label{font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:var(--aud);margin-bottom:8px;display:block}
+/* Section heading on right side — matches main site sh-inline */
+.step-section-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(20px,2vw,28px);font-weight:700;letter-spacing:.01em;color:var(--ink);line-height:1.15;margin-bottom:8px;font-style:normal}
+.step-section-sub{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:14px;color:#5a5040;line-height:1.8;margin-bottom:32px}
+.field-input{width:100%;height:48px;background:transparent;border:none;border-bottom:1px solid var(--crd);padding:0 0 12px;font-family:'Inter',Helvetica,Arial,sans-serif;font-size:15px;color:var(--ink);outline:none;transition:border-color .2s;-webkit-appearance:none}
+.field-input:focus{border-bottom-color:var(--au)}
+.field-input::placeholder{color:#b8b0a0}
+textarea.field-input{height:auto;min-height:100px;padding:12px 0;resize:none;line-height:1.6}
+select.field-input{cursor:pointer;background:transparent}
+
+/* COUNTER */
+.counter-group{display:flex;flex-direction:column;gap:20px;margin-bottom:32px}
+.counter-row{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-bottom:1px solid var(--crd)}
+.counter-info{display:flex;flex-direction:column;gap:4px}
+.counter-name{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:15px;color:var(--ink);font-weight:400}
+.counter-sub{font-family:'DM Sans',sans-serif;font-size:11px;color:#8a8070;letter-spacing:.04em}
+.counter-ctrl{display:flex;align-items:center;gap:16px}
+.counter-btn{width:36px;height:36px;border:1px solid var(--crd);background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;color:var(--ink);transition:all .2s;font-weight:300;line-height:1}
+.counter-btn:hover{border-color:var(--au);color:var(--au)}
+.counter-val{font-family:'Playfair Display',Georgia,serif;font-size:22px;color:var(--ink);min-width:28px;text-align:center}
+
+/* AGE CHIPS */
+.age-group{margin-bottom:32px}
+.age-label{font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:var(--aud);margin-bottom:14px;display:block}
+.age-chips{display:flex;flex-wrap:wrap;gap:8px}
+.age-chip{padding:8px 18px;border:1px solid var(--crd);background:transparent;font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.1em;color:#6a6050;cursor:pointer;transition:all .2s}
+.age-chip:hover{border-color:var(--au);color:var(--ink)}
+.age-chip.selected{border-color:var(--au);background:var(--au);color:var(--ink)}
+
+/* ROOM SELECTOR */
+.room-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:32px}
+.room-card{padding:20px 16px;border:1px solid var(--crd);background:transparent;cursor:pointer;transition:all .2s;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px}
+.room-card:hover{border-color:var(--au)}
+.room-card.selected{border-color:var(--au);background:rgba(199,168,120,.06)}
+.room-icon{font-size:24px;line-height:1}
+.room-name{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+.room-card.selected .room-name{color:var(--aud)}
+.room-count{display:flex;align-items:center;gap:8px;margin-top:4px}
+.room-count-btn{width:22px;height:22px;border:1px solid var(--crd);background:transparent;cursor:pointer;font-size:14px;line-height:1;display:flex;align-items:center;justify-content:center;color:var(--ink);transition:all .2s}
+.room-count-btn:hover{border-color:var(--au)}
+.room-count-val{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:13px;min-width:16px;text-align:center}
+
+/* STYLE SELECTOR */
+.style-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:32px}
+.style-card{border:1px solid var(--crd);cursor:pointer;transition:all .2s;overflow:hidden;position:relative}
+.style-card:hover{border-color:var(--au)}
+.style-card.selected{border-color:var(--au)}
+.style-card.selected::after{content:'✓';position:absolute;top:10px;right:10px;width:22px;height:22px;background:var(--au);color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600}
+.style-swatch{height:100px;display:flex;gap:2px;overflow:hidden}
+.style-swatch span{flex:1}
+.style-name{padding:12px 14px;font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
+.style-card.selected .style-name{color:var(--aud)}
+
+/* UPLOAD AREA */
+.upload-zone{border:1px dashed var(--crd);padding:48px 40px;text-align:center;cursor:pointer;transition:all .2s;margin-bottom:16px;position:relative}
+.upload-zone:hover{border-color:var(--au);background:rgba(199,168,120,.03)}
+.upload-zone input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.upload-icon{font-size:28px;margin-bottom:14px;opacity:.4}
+.upload-title{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);margin-bottom:6px}
+.upload-sub{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:13px;color:#8a8070}
+.upload-list{display:flex;flex-direction:column;gap:8px;margin-bottom:32px;min-height:0}
+.upload-item{display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(199,168,120,.06);border:1px solid rgba(199,168,120,.15)}
+.upload-item-name{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:13px;color:var(--ink);flex:1}
+.upload-item-size{font-family:'DM Sans',sans-serif;font-size:10px;color:#8a8070;letter-spacing:.06em}
+.upload-item-del{background:none;border:none;cursor:pointer;color:#8a8070;font-size:16px;padding:0;line-height:1;transition:color .2s}
+.upload-item-del:hover{color:var(--ink)}
+.upload-types{margin-bottom:32px}
+.upload-types p{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--aud);margin-bottom:12px}
+.upload-type-chips{display:flex;gap:8px;flex-wrap:wrap}
+.upload-type-chip{padding:6px 14px;border:1px solid var(--crd);font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#6a6050}
+.upload-room-label{font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:var(--aud);margin-bottom:14px;display:block}
+
+/* NAVIGATION */
+.form-nav{display:flex;align-items:center;justify-content:space-between;margin-top:48px;padding-top:32px;border-top:1px solid var(--crd)}
+.btn-next{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:var(--au);padding:16px 44px;border:none;cursor:pointer;font-weight:500;transition:background .2s;display:flex;align-items:center;gap:10px}
+.btn-next:hover{background:var(--aul)}
+.btn-prev{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8a8070;background:none;border:none;cursor:pointer;padding:0;transition:color .2s;display:flex;align-items:center;gap:8px}
+.btn-prev:hover{color:var(--ink)}
+.btn-prev::before{content:'←';font-size:14px;letter-spacing:0}
+
+/* SUMMARY / CONFIRMATION */
+.confirm-block{background:var(--g);padding:48px;margin-bottom:24px}
+.confirm-block h3{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--au);margin-bottom:20px;display:flex;align-items:center;justify-content:space-between}
+.confirm-block h3 a{font-size:9px;letter-spacing:.16em;color:rgba(199,168,120,.45);text-decoration:none;cursor:pointer;transition:color .2s}
+.confirm-block h3 a:hover{color:var(--au)}
+.confirm-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(199,168,120,.1)}
+.confirm-row:last-child{border-bottom:none}
+.confirm-key{font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(199,168,120,.45);letter-spacing:.06em}
+.confirm-val{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:13px;color:var(--mu);text-align:right;max-width:60%}
+
+/* SUCCESS */
+.success-screen{display:none;text-align:center;padding:80px 40px}
+.success-screen.active{display:block}
+.success-icon{font-size:48px;margin-bottom:32px;opacity:.7}
+.success-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(28px,3vw,42px);font-weight:700;color:var(--ink);margin-bottom:16px}
+.success-sub{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:16px;color:#5a5040;line-height:1.8;max-width:480px;margin:0 auto 40px}
+.btn-home{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:var(--au);padding:16px 44px;text-decoration:none;font-weight:500;display:inline-block;transition:background .2s}
+.btn-home:hover{background:var(--aul)}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  nav{padding:0 24px}
+  .intake-left{display:none}
+  .intake-right{padding:40px 28px;max-width:100%}
+  .progress-step .ps-label{display:none}
+  .room-grid,.style-grid{grid-template-columns:repeat(2,1fr)}
+  .field-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="lm">
+    <span class="lk">自宅</span>
+    <span class="ln">JITAKU</span>
+    <span class="ls">Interior</span>
+  </a>
+  <a href="index.html" class="nav-back">Terug naar de site</a>
+</nav>
+
+<div class="progress-wrap">
+  <div class="progress-inner">
+    <div class="progress-step active" data-step="1" onclick="goToStep(1)">
+      <span class="ps-num">1</span><span class="ps-label">Over jou</span>
+    </div>
+    <div class="progress-step" data-step="2" onclick="goToStep(2)">
+      <span class="ps-num">2</span><span class="ps-label">Je huishouden</span>
+    </div>
+    <div class="progress-step" data-step="3" onclick="goToStep(3)">
+      <span class="ps-num">3</span><span class="ps-label">De ruimtes</span>
+    </div>
+    <div class="progress-step" data-step="4" onclick="goToStep(4)">
+      <span class="ps-num">4</span><span class="ps-label">Foto's</span>
+    </div>
+    <div class="progress-step" data-step="5" onclick="goToStep(5)">
+      <span class="ps-num">5</span><span class="ps-label">Stijl</span>
+    </div>
+    <div class="progress-step" data-step="6" onclick="goToStep(6)">
+      <span class="ps-num">6</span><span class="ps-label">Bevestiging</span>
+    </div>
+  </div>
+  <div class="progress-bar-line"><div class="progress-bar-fill" id="progressBar"></div></div>
+</div>
+
+<div class="intake-wrap" id="intakeWrap">
+
+  <!-- SIDEBAR -->
+  <div class="intake-left" id="sidebarLeft">
+    <div>
+      <div class="step-eyebrow" id="sideEyebrow">Stap 1 van 6</div>
+      <h2 class="step-title" id="sideTitle">Wie mogen we verwelkomen?</h2>
+      <p class="step-desc" id="sideDesc">We beginnen rustig. Vertel ons wie je bent en hoe we contact kunnen opnemen als je plan klaar is.</p>
+      <div class="step-hint">
+        <p id="sideHint">Je gegevens worden uitsluitend gebruikt voor jouw interieuradvies en nooit gedeeld met derden.</p>
+      </div>
+    </div>
+    <div>
+      <p style="font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(199,168,120,.25)">JITAKU INTERIOR — INTAKE</p>
+    </div>
+  </div>
+
+  <!-- FORM AREA -->
+  <div class="intake-right">
+
+    <!-- STEP 1: Contactgegevens -->
+    <div class="step active" id="step1">
+      <div class="field-row">
+        <div>
+          <label class="field-label">Voornaam</label>
+          <input class="field-input" type="text" placeholder="Sophie" id="f-voornaam">
+        </div>
+        <div>
+          <label class="field-label">Achternaam</label>
+          <input class="field-input" type="text" placeholder="van den Berg" id="f-achternaam">
+        </div>
+      </div>
+      <div class="field-group">
+        <label class="field-label">E-mailadres</label>
+        <input class="field-input" type="email" placeholder="sophie@email.nl" id="f-email">
+      </div>
+      <div class="field-group">
+        <label class="field-label">Telefoonnummer <span style="color:#b8b0a0;font-size:8px;letter-spacing:.1em">(optioneel)</span></label>
+        <input class="field-input" type="tel" placeholder="+31 6 00 00 00 00" id="f-tel">
+      </div>
+      <div class="field-group">
+        <label class="field-label">Adres van de woning</label>
+        <input class="field-input" type="text" placeholder="Straatnaam en huisnummer" id="f-straat" style="margin-bottom:14px">
+      </div>
+      <div class="field-row">
+        <div>
+          <label class="field-label">Postcode</label>
+          <input class="field-input" type="text" placeholder="1234 AB" id="f-postcode">
+        </div>
+        <div>
+          <label class="field-label">Plaats</label>
+          <input class="field-input" type="text" placeholder="Amsterdam" id="f-plaats">
+        </div>
+      </div>
+      <div class="form-nav">
+        <span></span>
+        <button class="btn-next" onclick="nextStep()">Volgende →</button>
+      </div>
+    </div>
+
+    <!-- STEP 2: Huishouden -->
+    <div class="step" id="step2">
+      <div class="counter-group">
+        <div class="counter-row">
+          <div class="counter-info">
+            <span class="counter-name">Volwassenen</span>
+            <span class="counter-sub">18 jaar en ouder</span>
+          </div>
+          <div class="counter-ctrl">
+            <button class="counter-btn" onclick="changeCount('adults',-1)">−</button>
+            <span class="counter-val" id="adults-val">1</span>
+            <button class="counter-btn" onclick="changeCount('adults',1)">+</button>
+          </div>
+        </div>
+        <div class="counter-row">
+          <div class="counter-info">
+            <span class="counter-name">Kinderen</span>
+            <span class="counter-sub">Tot 17 jaar</span>
+          </div>
+          <div class="counter-ctrl">
+            <button class="counter-btn" onclick="changeCount('kids',-1)">−</button>
+            <span class="counter-val" id="kids-val">0</span>
+            <button class="counter-btn" onclick="changeCount('kids',1)">+</button>
+          </div>
+        </div>
+        <div class="counter-row" id="petsRow">
+          <div class="counter-info">
+            <span class="counter-name">Huisdieren</span>
+            <span class="counter-sub">Fijn om te weten voor materiaalkeuze</span>
+          </div>
+          <div class="counter-ctrl">
+            <button class="counter-btn" onclick="changeCount('pets',-1)">−</button>
+            <span class="counter-val" id="pets-val">0</span>
+            <button class="counter-btn" onclick="changeCount('pets',1)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="age-group" id="kidsAgeGroup" style="display:none">
+        <span class="age-label">Leeftijdsgroepen kinderen <span style="color:#b8b0a0;font-size:8px">(meerdere mogelijk)</span></span>
+        <div class="age-chips">
+          <div class="age-chip" onclick="toggleChip(this)">0 – 3 jaar</div>
+          <div class="age-chip" onclick="toggleChip(this)">4 – 8 jaar</div>
+          <div class="age-chip" onclick="toggleChip(this)">9 – 12 jaar</div>
+          <div class="age-chip" onclick="toggleChip(this)">13 – 17 jaar</div>
+        </div>
+      </div>
+
+      <div class="field-group" style="margin-top:16px">
+        <label class="field-label">Bijzonderheden <span style="color:#b8b0a0;font-size:8px;letter-spacing:.1em">(optioneel)</span></label>
+        <textarea class="field-input" placeholder="Bijv. werken vanuit huis, thuisstudie, zorgbehoefte…" id="f-bijzonder" rows="3"></textarea>
+      </div>
+
+      <div class="form-nav">
+        <button class="btn-prev" onclick="prevStep()">Vorige</button>
+        <button class="btn-next" onclick="nextStep()">Volgende →</button>
+      </div>
+    </div>
+
+    <!-- STEP 3: Ruimtes -->
+    <div class="step" id="step3">
+      <div style="margin-bottom:20px">
+        <span class="field-label">Welke ruimtes gaat het om? <span style="color:#b8b0a0;font-size:8px;letter-spacing:.1em">(meerdere mogelijk)</span></span>
+      </div>
+      <div class="room-grid">
+        <div class="room-card" onclick="toggleRoom(this)" data-room="Woonkamer">
+          <span class="room-icon">🛋</span>
+          <span class="room-name">Woonkamer</span>
+        </div>
+        <div class="room-card" onclick="toggleRoom(this)" data-room="Keuken">
+          <span class="room-icon">🍳</span>
+          <span class="room-name">Keuken</span>
+        </div>
+        <div class="room-card" onclick="toggleRoom(this)" data-room="Slaapkamer">
+          <span class="room-icon">🛏</span>
+          <span class="room-name">Slaapkamer</span>
+        </div>
+        <div class="room-card" onclick="toggleRoom(this)" data-room="Badkamer">
+          <span class="room-icon">🚿</span>
+          <span class="room-name">Badkamer</span>
+        </div>
+        <div class="room-card" onclick="toggleRoom(this)" data-room="Werkkamer">
+          <span class="room-icon">💻</span>
+          <span class="room-name">Werkkamer</span>
+        </div>
+        <div class="room-card" onclick="toggleRoom(this)" data-room="Gang / hal">
+          <span class="room-icon">🚪</span>
+          <span class="room-name">Gang / hal</span>
+        </div>
+        <div class="room-card" onclick="toggleRoom(this)" data-room="Kinderkamer">
+          <span class="room-icon">🧸</span>
+          <span class="room-name">Kinderkamer</span>
+        </div>
+        <div class="room-card" onclick="toggleRoom(this)" data-room="Tuin / balkon">
+          <span class="room-icon">🌿</span>
+          <span class="room-name">Tuin / balkon</span>
+        </div>
+        <div class="room-card" onclick="toggleRoom(this)" data-room="Anders">
+          <span class="room-icon">✦</span>
+          <span class="room-name">Anders</span>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label class="field-label">Wat wil je veranderen of bereiken?</label>
+        <textarea class="field-input" placeholder="Bijv. meer rust, meer licht, betere indeling, kleur toevoegen…" id="f-wensen" rows="4"></textarea>
+      </div>
+
+      <div class="field-group">
+        <label class="field-label">Budget (indicatie)</label>
+        <select class="field-input" id="f-budget">
+          <option value="" disabled selected>Kies een range…</option>
+          <option>Onder € 500</option>
+          <option>€ 500 – € 1.500</option>
+          <option>€ 1.500 – € 5.000</option>
+          <option>€ 5.000 – € 15.000</option>
+          <option>€ 15.000 en meer</option>
+          <option>Nog niet bepaald</option>
+        </select>
+      </div>
+
+      <div class="form-nav">
+        <button class="btn-prev" onclick="prevStep()">Vorige</button>
+        <button class="btn-next" onclick="nextStep()">Volgende →</button>
+      </div>
+    </div>
+
+    <!-- STEP 4: Stijl -->
+    <div class="step" id="step5">
+      <div style="margin-bottom:20px">
+        <span class="field-label">Welke stijlen spreken jou aan? <span style="color:#b8b0a0;font-size:8px;letter-spacing:.1em">(meerdere mogelijk)</span></span>
+      </div>
+      <div class="style-grid">
+
+        <div class="style-card" onclick="toggleStyle(this)" data-style="Scandinavisch">
+          <div class="style-swatch">
+            <span style="background:#e8e2d6"></span>
+            <span style="background:#c4b9a8"></span>
+            <span style="background:#f0ece4"></span>
+            <span style="background:#8a8070"></span>
+            <span style="background:#d4cfc6"></span>
+          </div>
+          <div class="style-name">Scandinavisch</div>
+        </div>
+
+        <div class="style-card" onclick="toggleStyle(this)" data-style="Japans / Wabi-sabi">
+          <div class="style-swatch">
+            <span style="background:#c8bea8"></span>
+            <span style="background:#1e2e26"></span>
+            <span style="background:#d4c8b0"></span>
+            <span style="background:#4a3f30"></span>
+            <span style="background:#e8e0cc"></span>
+          </div>
+          <div class="style-name">Japans / Wabi-sabi</div>
+        </div>
+
+        <div class="style-card" onclick="toggleStyle(this)" data-style="Klassiek">
+          <div class="style-swatch">
+            <span style="background:#2c2016"></span>
+            <span style="background:#c7a878"></span>
+            <span style="background:#f5f0e4"></span>
+            <span style="background:#8b6914"></span>
+            <span style="background:#e8d8b0"></span>
+          </div>
+          <div class="style-name">Klassiek</div>
+        </div>
+
+        <div class="style-card" onclick="toggleStyle(this)" data-style="Modern / Strak">
+          <div class="style-swatch">
+            <span style="background:#1a1a1a"></span>
+            <span style="background:#e8e8e8"></span>
+            <span style="background:#ffffff"></span>
+            <span style="background:#3a3a3a"></span>
+            <span style="background:#c0c0c0"></span>
+          </div>
+          <div class="style-name">Modern / Strak</div>
+        </div>
+
+        <div class="style-card" onclick="toggleStyle(this)" data-style="Industrieel">
+          <div class="style-swatch">
+            <span style="background:#2a2420"></span>
+            <span style="background:#6b5e52"></span>
+            <span style="background:#a09080"></span>
+            <span style="background:#c8b8a0"></span>
+            <span style="background:#3c3028"></span>
+          </div>
+          <div class="style-name">Industrieel</div>
+        </div>
+
+        <div class="style-card" onclick="toggleStyle(this)" data-style="Mediterraan">
+          <div class="style-swatch">
+            <span style="background:#e8d8b8"></span>
+            <span style="background:#4a7a6a"></span>
+            <span style="background:#c8a060"></span>
+            <span style="background:#f0e8d4"></span>
+            <span style="background:#2a5a70"></span>
+          </div>
+          <div class="style-name">Mediterraan</div>
+        </div>
+
+        <div class="style-card" onclick="toggleStyle(this)" data-style="Kleurrijk / Eclectisch">
+          <div class="style-swatch">
+            <span style="background:#c45a3a"></span>
+            <span style="background:#4a6a9a"></span>
+            <span style="background:#d4a040"></span>
+            <span style="background:#5a8a5a"></span>
+            <span style="background:#8a4a7a"></span>
+          </div>
+          <div class="style-name">Kleurrijk / Eclectisch</div>
+        </div>
+
+        <div class="style-card" onclick="toggleStyle(this)" data-style="Landelijk / Warm">
+          <div class="style-swatch">
+            <span style="background:#8b6040"></span>
+            <span style="background:#c4a070"></span>
+            <span style="background:#e8d4b8"></span>
+            <span style="background:#6a7a50"></span>
+            <span style="background:#d4c0a0"></span>
+          </div>
+          <div class="style-name">Landelijk / Warm</div>
+        </div>
+
+        <div class="style-card" onclick="toggleStyle(this)" data-style="Nog geen idee">
+          <div class="style-swatch" style="align-items:center;justify-content:center;background:#f5f0e4">
+            <span style="font-size:28px;flex:none">?</span>
+          </div>
+          <div class="style-name">Nog geen idee</div>
+        </div>
+
+      </div>
+
+      <div class="field-group">
+        <label class="field-label">Wat wil je absoluut níet zien? <span style="color:#b8b0a0;font-size:8px;letter-spacing:.1em">(optioneel)</span></label>
+        <textarea class="field-input" placeholder="Bijv. geen donkere kleuren, geen opvallende patronen…" id="f-niet" rows="3"></textarea>
+      </div>
+
+      <div class="form-nav">
+        <button class="btn-prev" onclick="prevStep()">Vorige</button>
+        <button class="btn-next" onclick="nextStep()">Volgende →</button>
+      </div>
+    </div>
+
+    <!-- STEP 4: Uploads per ruimte -->
+    <div class="step" id="step4">
+      <div id="roomUploadSections">
+        <!-- dynamically filled based on selected rooms -->
+      </div>
+
+      <div style="margin-top:8px;padding-top:32px;border-top:1px solid var(--crd)">
+        <div class="upload-zone" id="uploadZoneFloor">
+          <input type="file" multiple accept="image/*,.pdf" onchange="handleFiles(this, 'listFloor')">
+          <div class="upload-icon">📐</div>
+          <div class="upload-title">Plattegrond</div>
+          <div class="upload-sub">Ruw ingemeten schets, Funda-plattegrond of PDF uit de akte — alles is welkom</div>
+        </div>
+        <div class="upload-list" id="listFloor"></div>
+      </div>
+
+      <div class="form-nav">
+        <button class="btn-prev" onclick="prevStep()">Vorige</button>
+        <button class="btn-next" onclick="nextStep()">Volgende →</button>
+      </div>
+    </div>
+
+    <!-- STEP 6: Bevestiging -->
+    <div class="step" id="step6">
+
+      <div style="margin-bottom:32px">
+        <p style="font-family:'Inter',Helvetica,Arial,sans-serif;font-size:15px;color:#5a5040;line-height:1.8">Controleer je gegevens en verstuur de intake. We nemen binnen twee werkdagen contact op.</p>
+      </div>
+
+      <div class="confirm-block">
+        <h3>Contactgegevens <a onclick="goToStep(1)">Wijzigen</a></h3>
+        <div class="confirm-row"><span class="confirm-key">Naam</span><span class="confirm-val" id="c-naam">—</span></div>
+        <div class="confirm-row"><span class="confirm-key">E-mail</span><span class="confirm-val" id="c-email">—</span></div>
+        <div class="confirm-row"><span class="confirm-key">Adres</span><span class="confirm-val" id="c-adres">—</span></div>
+      </div>
+
+      <div class="confirm-block">
+        <h3>Huishouden <a onclick="goToStep(2)">Wijzigen</a></h3>
+        <div class="confirm-row"><span class="confirm-key">Bewoners</span><span class="confirm-val" id="c-bewoners">—</span></div>
+        <div class="confirm-row"><span class="confirm-key">Huisdieren</span><span class="confirm-val" id="c-huisdieren">—</span></div>
+      </div>
+
+      <div class="confirm-block">
+        <h3>Ruimtes &amp; wensen <a onclick="goToStep(3)">Wijzigen</a></h3>
+        <div class="confirm-row"><span class="confirm-key">Ruimtes</span><span class="confirm-val" id="c-ruimtes">—</span></div>
+        <div class="confirm-row"><span class="confirm-key">Budget</span><span class="confirm-val" id="c-budget">—</span></div>
+      </div>
+
+      <div class="confirm-block">
+        <h3>Stijlvoorkeur <a onclick="goToStep(5)">Wijzigen</a></h3>
+        <div class="confirm-row"><span class="confirm-key">Stijlen</span><span class="confirm-val" id="c-stijlen">—</span></div>
+      </div>
+
+      <div class="form-nav">
+        <button class="btn-prev" onclick="prevStep()">Vorige</button>
+        <button class="btn-next" onclick="submitForm()" style="background:var(--g);color:var(--au)">Intake versturen →</button>
+      </div>
+    </div>
+
+  </div><!-- /intake-right -->
+</div><!-- /intake-wrap -->
+
+<!-- SUCCESS -->
+<div class="success-screen" id="successScreen">
+  <div class="success-icon">✦</div>
+  <h2 class="success-title">Je intake is ontvangen</h2>
+  <p class="success-sub">Bedankt, <span id="successName">Sophie</span>. We bekijken je gegevens zorgvuldig en sturen je binnen twee werkdagen een bevestiging op <span id="successEmail"></span>.</p>
+  <a href="index.html" class="btn-home">Terug naar de site</a>
+</div>
+
+<script>
+let currentStep = 1;
+const totalSteps = 6;
+const counts = { adults: 1, kids: 0, pets: 0 };
+
+function buildRoomUploads() {
+  const selected = Array.from(document.querySelectorAll('.room-card.selected')).map(el => el.dataset.room);
+  const container = document.getElementById('roomUploadSections');
+  container.innerHTML = '';
+
+  if (selected.length === 0) {
+    container.innerHTML = '<p style="font-family:'Inter',Helvetica,Arial,sans-serif;font-size:14px;color:#8a8070;margin-bottom:24px">Je hebt nog geen ruimtes geselecteerd. Ga terug naar stap 3 om ruimtes te kiezen.</p>';
+    return;
+  }
+
+  selected.forEach((room, i) => {
+    const listId = 'roomList_' + i;
+    const inputId = 'roomInput_' + i;
+    const section = document.createElement('div');
+    section.style.cssText = 'margin-bottom:36px;padding-bottom:36px;border-bottom:1px solid var(--crd)';
+    section.innerHTML = \`
+      <div style="margin-bottom:14px">
+        <span style="font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:var(--aud)">\${room}</span>
+      </div>
+      <div class="upload-zone" style="margin-bottom:12px">
+        <input type="file" id="\${inputId}" multiple accept="image/*,video/*" onchange="handleFiles(this, '\${listId}')">
+        <div class="upload-icon" style="font-size:20px;margin-bottom:8px">📸</div>
+        <div class="upload-title">Foto's van de \${room.toLowerCase()}</div>
+        <div class="upload-sub">Meerdere hoeken, bij voorkeur bij daglicht</div>
+      </div>
+      <div class="upload-list" id="\${listId}"></div>
+    \`;
+    container.appendChild(section);
+  });
+}
+
+const sideContent = [
+  { eyebrow: 'Stap 1 van 6', title: 'Wie mogen we verwelkomen?', desc: 'We beginnen rustig. Vertel ons wie je bent en hoe we contact kunnen opnemen als je plan klaar is.', hint: 'Je gegevens worden uitsluitend gebruikt voor jouw interieuradvies en nooit gedeeld met derden.' },
+  { eyebrow: 'Stap 2 van 6', title: 'Wie wonen er?', desc: 'Het aantal en de leeftijden van je huisgenoten helpen ons de ruimtes beter te begrijpen.', hint: 'Kinderen en huisdieren zijn belangrijke factoren bij materiaalkeuze en indeling.' },
+  { eyebrow: 'Stap 3 van 6', title: 'Welke ruimtes?', desc: 'Geef aan om welke ruimtes het gaat en wat je wil bereiken. Je mag ook meerdere ruimtes kiezen.', hint: 'Hoe specifieker je bent in je wensen, hoe gerichter ons advies wordt.' },
+  { eyebrow: 'Stap 4 van 6', title: 'Laat ons de ruimte zien', desc: 'Upload foto\'s per ruimte die je hebt geselecteerd, en voeg een plattegrond toe als je die hebt.', hint: 'Elke hoek helpt ons verder. Je telefoon volstaat — daglicht is ideaal.' },
+  { eyebrow: 'Stap 5 van 6', title: 'Wat voor sfeer?', desc: 'Kies de stijlen die bij je passen. Er is geen goed of fout — dit geeft ons richting.', hint: 'Meerdere stijlen kiezen kan prima. Veel mensen zitten ergens tussenin.' },
+  { eyebrow: 'Stap 6 van 6', title: 'Klaar om te versturen', desc: 'Controleer je gegevens en stuur de intake op. We gaan er snel mee aan de slag.', hint: 'Na ontvangst sturen we een bevestiging. Binnen twee werkdagen nemen we contact op.' },
+];
+
+function updateProgress() {
+  document.querySelectorAll('.progress-step').forEach((el, i) => {
+    el.classList.remove('active', 'done');
+    if (i + 1 === currentStep) el.classList.add('active');
+    if (i + 1 < currentStep) el.classList.add('done');
+  });
+  const pct = ((currentStep - 1) / (totalSteps - 1)) * 100;
+  document.getElementById('progressBar').style.width = pct + '%';
+  const s = sideContent[currentStep - 1];
+  document.getElementById('sideEyebrow').textContent = s.eyebrow;
+  document.getElementById('sideTitle').textContent = s.title;
+  document.getElementById('sideDesc').textContent = s.desc;
+  document.getElementById('sideHint').textContent = s.hint;
+}
+
+function showStep(n) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.getElementById('step' + n).classList.add('active');
+  window.scrollTo({ top: 76, behavior: 'smooth' });
+}
+
+function nextStep() {
+  if (currentStep < totalSteps) {
+    if (currentStep === totalSteps - 1) fillSummary();
+    currentStep++;
+    showStep(currentStep);
+    updateProgress();
+    if (currentStep === 4) buildRoomUploads();
+  }
+}
+
+function prevStep() {
+  if (currentStep > 1) {
+    currentStep--;
+    showStep(currentStep);
+    updateProgress();
+  }
+}
+
+function goToStep(n) {
+  if (n <= currentStep) {
+    currentStep = n;
+    showStep(n);
+    updateProgress();
+  }
+}
+
+function changeCount(type, delta) {
+  counts[type] = Math.max(0, counts[type] + delta);
+  if (type === 'adults') counts[type] = Math.max(1, counts[type]);
+  document.getElementById(type + '-val').textContent = counts[type];
+  if (type === 'kids') {
+    document.getElementById('kidsAgeGroup').style.display = counts.kids > 0 ? 'block' : 'none';
+  }
+}
+
+function toggleChip(el) { el.classList.toggle('selected'); }
+function toggleStyle(el) { el.classList.toggle('selected'); }
+
+function toggleRoom(el) {
+  el.classList.toggle('selected');
+}
+
+function handleFiles(input, listId) {
+  const list = document.getElementById(listId);
+  Array.from(input.files).forEach(file => {
+    const item = document.createElement('div');
+    item.className = 'upload-item';
+    const size = file.size < 1024*1024 ? Math.round(file.size/1024) + ' KB' : (file.size/1024/1024).toFixed(1) + ' MB';
+    item.innerHTML = `<span class="upload-item-name">${file.name}</span><span class="upload-item-size">${size}</span><button class="upload-item-del" onclick="this.parentElement.remove()">×</button>`;
+    list.appendChild(item);
+  });
+}
+
+function fillSummary() {
+  const naam = [document.getElementById('f-voornaam').value, document.getElementById('f-achternaam').value].filter(Boolean).join(' ');
+  const straat = document.getElementById('f-straat').value;
+  const pc = document.getElementById('f-postcode').value;
+  const pl = document.getElementById('f-plaats').value;
+  const adres = [straat, [pc, pl].filter(Boolean).join(' ')].filter(Boolean).join(', ');
+
+  document.getElementById('c-naam').textContent = naam || '—';
+  document.getElementById('c-email').textContent = document.getElementById('f-email').value || '—';
+  document.getElementById('c-adres').textContent = adres || '—';
+
+  const bewoners = counts.adults + ' volwassene' + (counts.adults !== 1 ? 'n' : '') + (counts.kids > 0 ? ', ' + counts.kids + ' kind' + (counts.kids !== 1 ? 'eren' : '') : '');
+  document.getElementById('c-bewoners').textContent = bewoners;
+  document.getElementById('c-huisdieren').textContent = counts.pets > 0 ? counts.pets + ' huisdier' + (counts.pets !== 1 ? 'en' : '') : 'Geen';
+
+  const ruimtes = Array.from(document.querySelectorAll('.room-card.selected')).map(el => el.dataset.room).join(', ');
+  document.getElementById('c-ruimtes').textContent = ruimtes || '—';
+  document.getElementById('c-budget').textContent = document.getElementById('f-budget').value || '—';
+
+  const stijlen = Array.from(document.querySelectorAll('.style-card.selected')).map(el => el.dataset.style).join(', ');
+  document.getElementById('c-stijlen').textContent = stijlen || '—';
+}
+
+function submitForm() {
+  const naam = document.getElementById('f-voornaam').value || 'daar';
+  const email = document.getElementById('f-email').value;
+  document.getElementById('successName').textContent = naam;
+  document.getElementById('successEmail').textContent = email ? 'op ' + email : '';
+  document.getElementById('intakeWrap').style.display = 'none';
+  document.querySelector('.progress-wrap').style.display = 'none';
+  document.getElementById('successScreen').classList.add('active');
+  window.scrollTo({ top: 76, behavior: 'smooth' });
+}
+
+updateProgress();
+</script>
+</body>
+</html>

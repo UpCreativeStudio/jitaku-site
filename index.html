@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JITAKU INTERIOR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+JP:wght@300;400&family=Inter:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --g:#1e2e26;--gd:#16231c;--gm:#243829;
+  --cr:#f5f0e4;--crd:#e8e0cc;
+  --au:#c7a878;--aul:#d8bc96;--aud:#a07f4a;
+  --wh:#fdfcf8;--ink:#0f1c14;
+  --mu:rgba(245,240,228,0.65)
+}
+body{font-family:'Inter',Helvetica,Arial,sans-serif;background:var(--cr);color:var(--ink);overflow-x:hidden}
+.lm{display:flex;flex-direction:column;align-items:center;text-decoration:none;line-height:1}
+.lk{font-family:'Noto Serif JP',serif;font-size:22px;font-weight:300;color:var(--au);line-height:1}
+.ln{font-family:'Playfair Display',Georgia,serif;font-size:17px;letter-spacing:.22em;text-transform:uppercase;line-height:1.1}
+.ls{font-family:'DM Sans',sans-serif;font-size:8px;letter-spacing:.45em;text-transform:uppercase}
+.od .ln{color:var(--wh)} .od .ls{color:var(--au)}
+.ol .ln{color:var(--ink)} .ol .ls{color:var(--aud)}
+nav{position:fixed;top:0;left:0;right:0;z-index:300;height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 64px;background:rgba(30,46,38,.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(199,168,120,.18)}
+.nl{display:flex;gap:40px;list-style:none}
+.nl a{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mu);text-decoration:none;transition:color .2s}
+.nl a:hover{color:var(--au)}
+.nc{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:var(--au);padding:11px 28px;text-decoration:none;font-weight:500;transition:background .2s}
+.nc:hover{background:var(--aul)}
+.hero{min-height:100vh;background:var(--g);display:grid;grid-template-columns:1fr 1fr;padding-top:76px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(199,168,120,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(199,168,120,.035) 1px,transparent 1px);background-size:64px 64px;pointer-events:none}
+.ht{padding:100px 80px 80px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.kk{display:flex;align-items:center;gap:14px;font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--au);margin-bottom:40px}
+.kl{width:36px;height:1px;background:var(--au)}
+.h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(50px,6.5vw,86px);line-height:.94;letter-spacing:.02em;text-transform:uppercase;color:var(--wh);margin-bottom:10px}
+.h1 .g{color:var(--au)}
+.hi{font-family:'Playfair Display',Georgia,serif;font-size:clamp(28px,3.8vw,50px);font-weight:400;font-style:normal;color:rgba(245,240,228,.68);line-height:1.2;margin-bottom:44px;display:block}
+.hd{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:15px;font-style:normal;color:var(--mu);line-height:1.9;max-width:400px;margin-bottom:52px;border-left:2px solid var(--au);padding-left:20px}
+.hb{display:flex;gap:16px;align-items:center}
+.bg{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:var(--au);padding:16px 40px;text-decoration:none;font-weight:500;transition:background .2s;display:inline-block}
+.bg:hover{background:var(--aul)}
+.bo{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cr);border-bottom:1px solid rgba(245,240,228,.25);text-decoration:none;padding-bottom:2px;transition:color .2s,border-color .2s}
+.bo:hover{color:var(--au);border-color:var(--au)}
+.hr{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:60px;border-left:1px solid rgba(199,168,120,.12)}
+.hroom{position:absolute;inset:0;width:100%;height:100%}
+.hst{position:relative;z-index:3;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(199,168,120,.2);border:1px solid rgba(199,168,120,.2)}
+.st{background:rgba(30,46,38,.88);backdrop-filter:blur(8px);padding:22px 26px}
+.sn{font-family:'Playfair Display',Georgia,serif;font-size:30px;color:var(--au);display:block}
+.sl{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mu);margin-top:2px}
+.strip{background:var(--gd);border-top:1px solid rgba(199,168,120,.15);border-bottom:1px solid rgba(199,168,120,.15)}
+.sr{display:flex}
+.si{flex:1;padding:26px 44px;border-right:1px solid rgba(199,168,120,.1);display:flex;align-items:center;gap:14px}
+.si:last-child{border-right:none}
+.sin{font-family:'Playfair Display',Georgia,serif;font-size:13px;font-style:italic;color:var(--au);flex-shrink:0}
+.sit{font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:.04em;color:var(--mu);font-weight:300}
+.eb{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--aud);margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.eb::before{content:'';width:32px;height:1px;background:var(--aud)}
+.ebl{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--aud);margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.ebl::before{content:'';width:32px;height:1px;background:var(--aud)}
+
+
+
+
+.ww{background:var(--cr);padding:120px 80px}
+.wwg{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-top:64px}
+.wws{display:flex;flex-direction:column}
+.ws{display:grid;grid-template-columns:52px 1fr;border-top:1px solid var(--crd);padding:30px 0}
+.ws:last-child{border-bottom:1px solid var(--crd)}
+.wsn{font-family:'Playfair Display',Georgia,serif;font-size:13px;font-style:italic;color:var(--aud);padding-top:4px}
+.ws h3{font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;margin-bottom:10px;color:var(--ink)}
+.ws p{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:14px;color:#5a5040;line-height:1.8}
+.wwv{background:var(--cr);overflow:hidden;display:flex;flex-direction:column;justify-content:flex-start;position:sticky;top:100px}
+.wwl{position:relative;z-index:2;padding:20px 28px;border-top:1px solid rgba(199,168,120,.2);font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--au)}
+.ds{background:var(--g);padding:120px 80px}
+.dg{display:grid;grid-template-columns:repeat(3,1fr);margin-top:64px;border:1px solid rgba(199,168,120,.18);gap:1px;background:rgba(199,168,120,.12)}
+.di{background:var(--g);padding:48px 40px;transition:background .25s}
+.di:hover{background:var(--gm)}
+.din{font-family:'Playfair Display',Georgia,serif;font-size:12px;font-style:italic;color:var(--au);display:block;margin-bottom:18px}
+.di h3{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--wh);margin-bottom:14px}
+.di p{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:14px;color:var(--mu);line-height:1.8}
+.mf{background:var(--gd);padding:120px 80px;border-top:1px solid rgba(199,168,120,.18);border-bottom:1px solid rgba(199,168,120,.18);text-align:center}
+.mf blockquote{font-family:'Playfair Display',Georgia,serif;font-size:clamp(22px,3vw,40px);font-weight:400;font-style:italic;color:var(--cr);line-height:1.55;max-width:800px;margin:0 auto 32px}
+.mf blockquote .g{color:var(--au);font-style:normal}
+.mf cite{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(199,168,120,.4)}
+.it{background:var(--cr);padding:120px 80px}
+.iti{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center;margin-top:64px}
+.ic h3{font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;color:var(--ink);margin-bottom:16px}
+.ic p{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:15px;color:#5a5040;line-height:1.85;margin-bottom:20px}
+.mk{background:var(--g);padding:44px;display:flex;flex-direction:column;gap:18px}
+.mf2{display:flex;flex-direction:column;gap:7px}
+.ml{font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:var(--au)}
+.mi{height:44px;background:rgba(245,240,228,.06);border:1px solid rgba(199,168,120,.22);padding:0 14px;font-family:'Inter',Helvetica,Arial,sans-serif;font-size:14px;color:rgba(245,240,228,.85);display:flex;align-items:center}
+.mi.em{color:rgba(245,240,228,.28);font-style:italic}
+.mb{height:52px;background:var(--au);margin-top:8px;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);font-weight:500;cursor:pointer}
+.es{background:var(--crd);padding:120px 80px}
+.eg{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--crd);margin-top:64px}
+.ev{background:var(--cr);padding:44px;border-top:3px solid var(--au)}
+.eq{font-family:'Playfair Display',Georgia,serif;font-size:15px;font-style:italic;color:var(--ink);line-height:1.85;margin-bottom:28px}
+.en{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#7a6e63}
+.ec{color:var(--aud);display:block;margin-top:3px}
+footer{background:var(--gd);border-top:1px solid rgba(199,168,120,.18)}
+.ft{padding:80px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;border-bottom:1px solid rgba(199,168,120,.1)}
+.fb p{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:13px;font-style:normal;color:var(--mu);line-height:1.8;margin-top:20px;max-width:260px}
+.fc h4{font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:rgba(199,168,120,.4);margin-bottom:20px}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.fc a{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:300;color:var(--mu);text-decoration:none;transition:color .2s}
+.fc a:hover{color:var(--au)}
+.fbo{padding:24px 80px;display:flex;justify-content:space-between;align-items:center}
+.fbo p{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.06em;color:rgba(199,168,120,.3)}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .75s ease,transform .75s ease}
+.rv.in{opacity:1;transform:translateY(0)}
+@media(max-width:960px){
+  nav{padding:0 24px} .nl{display:none}
+  .hero,.wwg,.iti{grid-template-columns:1fr}
+  .hr{min-height:380px} .ht{padding:60px 28px}
+  .ww,.ds,.mf,.it,.es{padding:80px 28px}
+  .dg,.eg{grid-template-columns:1fr}
+  .sr{flex-direction:column}
+  .si{border-right:none;border-bottom:1px solid rgba(199,168,120,.1);padding:18px 28px}
+  .ft{padding:60px 28px;grid-template-columns:1fr 1fr;gap:36px}
+  .fbo{padding:20px 28px;flex-direction:column;gap:8px}
+}
+
+.wwv{position:relative;overflow:hidden}
+.img-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;width:100%}
+.ig-cell{position:relative;overflow:hidden;aspect-ratio:4/3}
+.ig-cell.ig-empty{background:var(--crd)}
+.ig-wide{grid-column:1/-1;position:relative;overflow:hidden;aspect-ratio:16/5}
+.ig-placeholder{position:absolute;inset:0;background:var(--gm);display:flex;align-items:center;justify-content:center;border:1px dashed rgba(199,168,120,.25)}
+.ig-label{font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:rgba(199,168,120,.4)}
+.ig-cell img,.ig-wide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+
+
+/* Section headers — light bg */
+.sh-inline{font-family:'Playfair Display',Georgia,serif;font-size:clamp(28px,3.5vw,46px);font-weight:700;letter-spacing:.01em;color:var(--ink);line-height:1.15;margin-bottom:4px;font-style:normal}
+.sh-inline em{font-style:normal;font-weight:700;color:var(--ink)}
+/* Section headers — dark bg */
+.shl-inline{font-family:'Playfair Display',Georgia,serif;font-size:clamp(28px,3.5vw,46px);font-weight:700;letter-spacing:.01em;color:var(--wh);line-height:1.15;margin-bottom:4px;font-style:normal}
+.shl-inline em{font-style:normal;font-weight:700;color:var(--wh)}
+/* Legacy fallbacks */
+.sh{font-family:'Playfair Display',Georgia,serif;font-size:clamp(28px,3.5vw,46px);font-weight:700;letter-spacing:.01em;color:var(--ink);line-height:1.15;margin-bottom:4px}
+.shl{font-family:'Playfair Display',Georgia,serif;font-size:clamp(28px,3.5vw,46px);font-weight:700;letter-spacing:.01em;color:var(--wh);line-height:1.15;margin-bottom:4px}
+.si2{display:none}.si2l{display:none}
+
+/* JITAKU OP LOCATIE — premium dark section */
+.ol-section{background:var(--gd);padding:140px 80px}
+.ol-divider{background:var(--gd);border-top:1px solid rgba(199,168,120,.15);padding:60px 80px;display:flex;align-items:center;justify-content:space-between;gap:40px}
+.ol-divider-label{font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:rgba(199,168,120,.3)}
+.ol-divider-line{flex:1;height:1px;background:rgba(199,168,120,.12)}
+.ol-divider-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(13px,1.2vw,16px);font-weight:700;color:rgba(199,168,120,.5);letter-spacing:.08em;white-space:nowrap}
+.ol-grid{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:start;margin-top:80px}
+.ol-steps{display:flex;flex-direction:column;gap:0}
+.ol-step{display:grid;grid-template-columns:52px 1fr;padding:28px 0;border-top:1px solid rgba(199,168,120,.1)}
+.ol-step:last-child{border-bottom:1px solid rgba(199,168,120,.1)}
+.ol-step-n{font-family:'Playfair Display',Georgia,serif;font-size:13px;font-style:italic;color:rgba(199,168,120,.45);padding-top:3px}
+.ol-step h3{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;color:var(--wh);margin-bottom:8px}
+.ol-step p{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:14px;color:var(--mu);line-height:1.8}
+.ol-visual{display:flex;flex-direction:column;gap:16px;position:sticky;top:100px}
+.ol-visual-block{background:var(--gm);padding:44px;border:1px solid rgba(199,168,120,.1)}
+.ol-visual-block h4{font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:var(--au);margin-bottom:20px}
+.ol-visual-block ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.ol-visual-block ul li{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:14px;color:var(--mu);line-height:1.6;padding-left:18px;position:relative}
+.ol-visual-block ul li::before{content:'—';position:absolute;left:0;color:var(--au);font-size:11px}
+.ol-cta{background:var(--g);padding:56px 80px;border-top:1px solid rgba(199,168,120,.12);display:flex;align-items:center;justify-content:space-between;gap:40px}
+.ol-cta-text h3{font-family:'Playfair Display',Georgia,serif;font-size:clamp(20px,2.2vw,30px);font-weight:700;color:var(--wh);margin-bottom:8px}
+.ol-cta-text p{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:14px;color:var(--mu);line-height:1.7;max-width:480px}
+.btn-contact{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:var(--au);padding:18px 48px;text-decoration:none;font-weight:500;transition:background .2s;white-space:nowrap;display:inline-block}
+.btn-contact:hover{background:var(--aul)}
+@media(max-width:960px){
+  .ol-section,.ol-divider,.ol-cta{padding-left:28px;padding-right:28px}
+  .ol-grid{grid-template-columns:1fr}
+  .ol-cta{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="#" class="lm od"><span class="lk">自宅 </span><span class="ln">JITAKU</span><span class="ls">Interior</span></a>
+  <ul class="nl"><li><a href="#ww">Werkwijze</a></li><li><a href="#ds">Diensten</a></li><li><a href="#contact">Contact</a></li></ul>
+  <a href="jitaku-intake.html" class="nc">Intake starten</a>
+</nav>
+
+<section class="hero">
+  <div class="ht">
+    <div class="kk"><span class="kl"></span>Interieuradvies op afstand</div>
+    <h1 class="h1">JOUW<br>RUIMTE<br><span class="g">OPNIEUW</span></h1>
+    <span class="hi">bekeken.</span>
+    <p class="hd">Wij analyseren jouw woning op basis van foto's en geven je concrete, visuele plannen voor indeling, sfeer of verbouwing — zonder huisbezoek.</p>
+    <div class="hb"><a href="jitaku-intake.html" class="bg">Start de intake</a><a href="#ww" class="bo">Hoe werkt het?</a></div>
+  </div>
+  <div class="hr">
+    <svg class="hroom" viewBox="0 0 600 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <polygon points="140,160 460,160 460,680 140,680" fill="rgba(199,168,120,.04)" stroke="rgba(199,168,120,.12)" stroke-width=".5"/>
+      <polygon points="60,820 140,680 460,680 540,820" fill="rgba(30,46,38,.5)" stroke="rgba(199,168,120,.07)" stroke-width=".5"/>
+      <polygon points="60,80 140,160 140,680 60,820" fill="rgba(199,168,120,.02)" stroke="rgba(199,168,120,.07)" stroke-width=".5"/>
+      <polygon points="540,80 460,160 460,680 540,820" fill="rgba(0,0,0,.1)" stroke="rgba(199,168,120,.05)" stroke-width=".5"/>
+      <polygon points="60,80 140,160 460,160 540,80" fill="rgba(199,168,120,.015)" stroke="rgba(199,168,120,.07)" stroke-width=".5"/>
+      <rect x="195" y="200" width="210" height="320" fill="rgba(199,168,120,.07)" stroke="rgba(199,168,120,.28)" stroke-width=".8"/>
+      <line x1="300" y1="200" x2="300" y2="520" stroke="rgba(199,168,120,.18)" stroke-width=".5"/>
+      <line x1="195" y1="360" x2="405" y2="360" stroke="rgba(199,168,120,.18)" stroke-width=".5"/>
+      <polygon points="220,520 380,520 445,680 155,680" fill="rgba(199,168,120,.04)"/>
+      <rect x="148" y="588" width="225" height="76" fill="rgba(245,240,228,.04)" stroke="rgba(199,168,120,.2)" stroke-width=".6"/>
+      <rect x="148" y="553" width="225" height="42" fill="rgba(245,240,228,.03)" stroke="rgba(199,168,120,.15)" stroke-width=".5"/>
+      <rect x="148" y="553" width="26" height="112" fill="rgba(245,240,228,.03)" stroke="rgba(199,168,120,.12)" stroke-width=".5"/>
+      <rect x="347" y="553" width="26" height="112" fill="rgba(245,240,228,.03)" stroke="rgba(199,168,120,.12)" stroke-width=".5"/>
+      <rect x="174" y="560" width="76" height="32" rx="2" fill="rgba(199,168,120,.1)" stroke="rgba(199,168,120,.18)" stroke-width=".4"/>
+      <rect x="270" y="560" width="76" height="32" rx="2" fill="rgba(199,168,120,.07)" stroke="rgba(199,168,120,.14)" stroke-width=".4"/>
+      <rect x="190" y="664" width="120" height="14" fill="rgba(245,240,228,.03)" stroke="rgba(199,168,120,.12)" stroke-width=".5"/>
+      <line x1="444" y1="670" x2="432" y2="358" stroke="rgba(245,240,228,.14)" stroke-width="1.4"/>
+      <ellipse cx="432" cy="356" rx="38" ry="14" fill="rgba(30,46,38,.9)" stroke="rgba(199,168,120,.2)" stroke-width=".7"/>
+      <ellipse cx="432" cy="430" rx="100" ry="150" fill="rgba(199,168,120,.04)"/>
+      <rect x="460" y="622" width="22" height="50" rx="2" fill="rgba(245,240,228,.03)" stroke="rgba(199,168,120,.1)" stroke-width=".5"/>
+      <ellipse cx="471" cy="618" rx="38" ry="30" fill="rgba(36,56,41,.65)"/>
+      <ellipse cx="452" cy="596" rx="26" ry="24" fill="rgba(28,48,36,.55)"/>
+      <ellipse cx="490" cy="602" rx="22" ry="20" fill="rgba(40,60,47,.5)"/>
+      <text x="460" y="240" font-size="130" font-family="'Noto Serif JP',serif" fill="rgba(199,168,120,.04)" text-anchor="middle">自</text>
+    </svg>
+    <div class="hst">
+      <div class="st"><span class="sn">48u</span><span class="sl">Levertijd plan</span></div>
+      <div class="st"><span class="sn">3+</span><span class="sl">Stijlrichtingen</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="strip"><div class="sr">
+  <div class="si"><span class="sin">I.</span><span class="sit">Interieuradvies zonder huisbezoek</span></div>
+  <div class="si"><span class="sin">II.</span><span class="sit">Concreet plan op basis van foto's</span></div>
+  <div class="si"><span class="sin">III.</span><span class="sit">Meerdere stijlrichtingen naast elkaar</span></div>
+  <div class="si"><span class="sin">IV.</span><span class="sit">Van verbouwing tot sfeeradvies</span></div>
+</div></div>
+
+<section class="ww" id="ww">
+  <div class="rv"><div class="eb">Werkwijze</div><h2 class="sh-inline">Hoe het werkt</h2></div>
+  <div class="wwg">
+    <div class="wws rv">
+      <div class="ws"><span class="wsn">01</span><div><h3>Intake invullen</h3><p>Je vertelt ons over de ruimte: wat er nu staat, wat je wil veranderen en wat je budget is. Duidelijk en zonder vakjargon.</p></div></div>
+      <div class="ws"><span class="wsn">02</span><div><h3>Foto's uploaden</h3><p>Na het invullen van de intake krijg je toegang tot een persoonlijke omgeving. Daar upload je foto's van elke hoek — je telefoon volstaat.</p></div></div>
+      <div class="ws"><span class="wsn">03</span><div><h3>Analyse & uitwerking</h3><p>Ons team bestudeert je ruimte aandachtig: verhoudingen, lichtinval, structuur en mogelijkheden worden zorgvuldig beoordeeld.</p></div></div>
+      <div class="ws"><span class="wsn">04</span><div><h3>Jouw interieurplan</h3><p>Je ontvangt een visueel en concreet plan met meerdere richtingen. Optioneel: een videogesprek om alles samen door te nemen.</p></div></div>
+    </div>
+    <div class="wwv rv" style="transition-delay:.15s;position:relative;aspect-ratio:auto;background:var(--cr);overflow:hidden">
+      <div class="img-grid">
+        <div class="ig-cell"><div class="ig-placeholder"><span class="ig-label">Concept 01</span></div></div>
+        <div class="ig-cell ig-empty"></div>
+        <div class="ig-cell ig-empty"></div>
+        <div class="ig-cell"><div class="ig-placeholder"><span class="ig-label">Concept 02</span></div></div>
+        <div class="ig-cell"><div class="ig-placeholder"><span class="ig-label">Concept 03</span></div></div>
+        <div class="ig-cell ig-empty"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ds" id="ds">
+  <div class="rv"><div class="ebl">Diensten</div><h2 class="shl-inline">Wat we uitwerken</h2></div>
+  <div class="dg rv" style="transition-delay:.1s">
+    <div class="di"><span class="din">01</span><h3>Indelingsadvies</h3><p>Meerdere opstelvarianten op schaal, inclusief looproutes en meubelpropositie per ruimte.</p></div>
+    <div class="di"><span class="din">02</span><h3>Kleur & materiaal</h3><p>Concreet palet met exacte kleurcodes, materiaalsoorten en alternatieven per budget.</p></div>
+    <div class="di"><span class="din">03</span><h3>Moodboard & stijlvisie</h3><p>Visuele vertaling van de gewenste sfeer — als leidraad bij elke aankoop of keuze.</p></div>
+    <div class="di"><span class="din">04</span><h3>Renovatieadvies</h3><p>We visualiseren verbouwopties voordat je een aannemer belt. Geen verrassingen achteraf.</p></div>
+    <div class="di"><span class="din">05</span><h3>Lichtplan</h3><p>Sfeer-, werk- en accentverlichting. Waar welk armatuur past en hoe bestaand licht verbetert.</p></div>
+    <div class="di"><span class="din">06</span><h3>Adviesgesprek</h3><p>Optioneel videogesprek met een interieurspecialist na oplevering van het plan.</p></div>
+  </div>
+</section>
+
+<div class="mf"><div class="rv"><blockquote>"Thuis is een gevoel — <span class="g">wij geven het vorm.</span>"</blockquote><cite>— JITAKU INTERIOR</cite></div></div>
+
+<section class="it" id="intake">
+  <div class="rv"><div class="eb">Beginnen</div><h2 class="sh-inline">Start de intake</h2></div>
+  <div class="iti">
+    <div class="ic rv">
+      <h3>Minder dan vijf minuten</h3>
+      <p>Vul een kort formulier in over je woning, je wensen en je budget. Daarna krijg je direct toegang tot je persoonlijke omgeving om foto's te uploaden.</p>
+      <p>Geen verplichtingen, geen kosten vooraf. We nemen binnen twee werkdagen contact op.</p>
+      <a href="jitaku-intake.html" class="bg" style="margin-top:16px">Naar de intake →</a>
+    </div>
+    <div class="mk rv" style="transition-delay:.15s">
+      <div class="mf2"><span class="ml">Naam</span><div class="mi">Sophie van den Berg</div></div>
+      <div class="mf2"><span class="ml">E-mailadres</span><div class="mi">sophie@email.nl</div></div>
+      <div class="mf2"><span class="ml">Type ruimte</span><div class="mi em">Selecteer...</div></div>
+      <div class="mf2"><span class="ml">Wat wil je veranderen?</span><div class="mi em" style="height:70px;align-items:flex-start;padding-top:12px">Alles voelt wat kaal en rommelig…</div></div>
+      <div class="mb">Volgende stap →</div>
+    </div>
+  </div>
+</section>
+
+<section class="es">
+  <div class="rv"><div class="eb">Ervaringen</div><h2 class="sh-inline">Wat klanten zeggen</h2></div>
+  <div class="eg rv" style="transition-delay:.1s">
+    <div class="ev"><p class="eq">"Ik heb jarenlang niet geweten hoe ik mijn woonkamer moest aanpakken. Het plan van JITAKU was concreet, betaalbaar en volledig op mijn situatie afgestemd."</p><span class="en">Sophie R.<span class="ec">Utrecht</span></span></div>
+    <div class="ev"><p class="eq">"We wilden een open keuken maar wisten niet of het kon. JITAKU visualiseerde drie opties. Het gesprek met onze aannemer verliep daarna een stuk makkelijker."</p><span class="en">Mark & Ines V.<span class="ec">Amsterdam</span></span></div>
+    <div class="ev"><p class="eq">"Ik verwachtte vage inspiratie, maar kreeg een echt plan: kleurnummers, meubelmaten, lichtpunten. Precies wat ik nodig had om te beginnen."</p><span class="en">Lena K.<span class="ec">Arnhem</span></span></div>
+  </div>
+</section>
+
+
+<!-- DIVIDER: online → op locatie -->
+<div class="ol-divider">
+  <span class="ol-divider-label">Online advies</span>
+  <div class="ol-divider-line"></div>
+  <span class="ol-divider-title">JITAKU OP LOCATIE</span>
+  <div class="ol-divider-line"></div>
+  <span class="ol-divider-label">Volledig ontzorgd</span>
+</div>
+
+<!-- JITAKU OP LOCATIE -->
+<section class="ol-section" id="locatie">
+  <div class="rv">
+    <div class="ebl">Op locatie</div>
+    <h2 class="shl-inline">Van plint tot plafond</h2>
+    <p style="font-family:'Inter',Helvetica,Arial,sans-serif;font-size:16px;color:var(--mu);line-height:1.85;max-width:560px;margin-top:16px">Voor wie niet wil nadenken over de details. We komen bij je thuis, meten in, werken alles uit in 3D en begeleiden je van eerste idee tot afgewerkte ruimte.</p>
+  </div>
+
+  <div class="ol-grid">
+    <div class="ol-steps rv">
+      <div class="ol-step">
+        <span class="ol-step-n">01</span>
+        <div>
+          <h3>Kennismaking op locatie</h3>
+          <p>We komen langs, bekijken de ruimte met eigen ogen en meten alles nauwkeurig in. Geen aannames op basis van foto's.</p>
+        </div>
+      </div>
+      <div class="ol-step">
+        <span class="ol-step-n">02</span>
+        <div>
+          <h3>3D uitwerking</h3>
+          <p>Elke ruimte wordt fotorealistisch gerenderd. Je ziet exact hoe het eindresultaat eruitziet — vóór er één schroef gedraaid is.</p>
+        </div>
+      </div>
+      <div class="ol-step">
+        <span class="ol-step-n">03</span>
+        <div>
+          <h3>Werktekeningen</h3>
+          <p>Voor keukens, kasten en maatwerk leveren we technische tekeningen aan. Klaar om direct aan een aannemer of timmerman te geven.</p>
+        </div>
+      </div>
+      <div class="ol-step">
+        <span class="ol-step-n">04</span>
+        <div>
+          <h3>Begeleiding & revisie</h3>
+          <p>We stemmen het plan met je af, passen aan waar nodig en blijven beschikbaar tijdens de uitvoering als klankbord.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ol-visual rv" style="transition-delay:.15s">
+      <div class="ol-visual-block">
+        <h4>Wat je ontvangt</h4>
+        <ul>
+          <li>Opname op locatie inclusief inmeten</li>
+          <li>3D renders per ruimte, fotorealistisch</li>
+          <li>Moodboard & materiaalpalet</li>
+          <li>Werktekeningen voor maatwerk</li>
+          <li>Productlijst met concrete aankoopsuggesties</li>
+          <li>Lichtplan met armatuuradvies</li>
+          <li>Één revisieronde standaard inbegrepen</li>
+          <li>Persoonlijk videogesprek voor oplevering</li>
+        </ul>
+      </div>
+      <div class="ol-visual-block" style="background:rgba(199,168,120,.06)">
+        <h4>Tarief</h4>
+        <ul>
+          <li>Op basis van scope en verbouwbudget</li>
+          <li>Altijd een vaste prijs vooraf — geen verrassingen</li>
+          <li>Vraag een vrijblijvende kennismaking aan</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ol-cta">
+  <div class="ol-cta-text rv">
+    <h3>Klaar voor het volledige traject?</h3>
+    <p>Plan een vrijblijvende kennismaking. We bespreken de ruimte, de wensen en wat het traject inhoudt — zonder verplichtingen.</p>
+  </div>
+  <a href="mailto:hallo@jitaku.nl" class="btn-contact rv" style="transition-delay:.1s">Plan een kennismaking</a>
+</div>
+
+<footer id="contact">
+  <div class="ft">
+    <div class="fb">
+      <a href="#" class="lm od" style="align-items:flex-start"><span class="lk">自宅 </span><span class="ln">JITAKU</span><span class="ls">Interior</span></a>
+      <p>Online interieuradvies én volledige begeleiding op locatie — van eerste schets tot afgewerkte ruimte.</p>
+    </div>
+    <div class="fc"><h4>Navigatie</h4><ul><li><a href="#ww">Werkwijze</a></li><li><a href="#ds">Diensten</a></li><li><a href="jitaku-intake.html">Intake starten</a></li><li><a href="#locatie">Op locatie</a></li></ul></div>
+    <div class="fc"><h4>Bedrijf</h4><ul><li><a href="#">Over JITAKU</a></li><li><a href="#">Ons team</a></li></ul></div>
+    <div class="fc"><h4>Contact</h4><ul><li><a href="mailto:hallo@jitaku.nl">hallo@jitaku.nl</a></li><li><a href="#">Instagram</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="fbo"><p>©️ 2026 JITAKU INTERIOR</p><p>Privacybeleid · Algemene voorwaarden</p></div>
+</footer>
+<script>
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')}),{threshold:.07});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
