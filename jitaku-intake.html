@@ -29,7 +29,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:76px;display:flex;ali
 .nav-back::before{content:'←';font-size:14px;letter-spacing:0}
 
 /* PROGRESS BAR */
-.progress-wrap{padding-top:76px;background:var(--gd);border-bottom:1px solid rgba(199,168,120,.12)}
+.progress-wrap{position:fixed;top:76px;left:0;right:0;z-index:299;background:var(--gd);border-bottom:1px solid rgba(199,168,120,.12)}
 .progress-inner{display:flex;align-items:stretch;max-width:100%}
 .progress-step{flex:1;padding:18px 24px;display:flex;align-items:center;gap:12px;border-right:1px solid rgba(199,168,120,.1);cursor:pointer;transition:background .2s;position:relative}
 .progress-step:last-child{border-right:none}
@@ -46,7 +46,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:76px;display:flex;ali
 
 /* MAIN LAYOUT */
 .intake-wrap{flex:1;min-height:calc(100vh - 166px);display:flex;align-items:stretch}
-.intake-left{width:380px;flex-shrink:0;background:var(--g);padding:80px 60px;display:flex;flex-direction:column;justify-content:space-between;position:fixed;top:130px;left:0;bottom:0;overflow-y:auto}
+.intake-left{width:380px;flex-shrink:0;background:var(--g);padding:80px 60px;display:flex;flex-direction:column;justify-content:space-between;position:fixed;top:180px;left:0;bottom:0;overflow-y:auto}
 .intake-right{flex:1;padding:80px;max-width:700px;margin-left:380px}
 
 .step-eyebrow{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--au);margin-bottom:20px;display:flex;align-items:center;gap:12px}
