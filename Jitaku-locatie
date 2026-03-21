@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JITAKU Op Locatie — Volledig Interieurtraject</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --g:#1e2e26;--gd:#16231c;--gm:#243829;
+  --cr:#f5f0e4;--crd:#e8e0cc;
+  --au:#c7a878;--aul:#d8bc96;--aud:#a07f4a;
+  --wh:#fdfcf8;--ink:#0f1c14;
+  --mu:rgba(245,240,228,0.65)
+}
+body{font-family:'Inter',Helvetica,Arial,sans-serif;background:var(--gd);color:var(--wh);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 64px;background:rgba(22,35,28,.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(199,168,120,.12)}
+.nl{display:flex;gap:40px;list-style:none}
+.nl a{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mu);text-decoration:none;transition:color .2s}
+.nl a:hover{color:var(--au)}
+.nc{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:var(--au);padding:11px 28px;text-decoration:none;font-weight:500;transition:background .2s}
+.nc:hover{background:var(--aul)}
+
+/* LOGO */
+.logo-svg{height:64px;width:auto;display:block}
+.logo-svg .logo-wordmark path{fill:#fdfcf8}
+
+/* HERO */
+.hero{min-height:100vh;background:var(--g);padding-top:76px;position:relative;overflow:hidden;display:flex;align-items:center}
+.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(199,168,120,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(199,168,120,.03) 1px,transparent 1px);background-size:80px 80px;pointer-events:none}
+.hero-inner{padding:120px 80px;position:relative;z-index:2;max-width:800px}
+.hero-eyebrow{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--au);margin-bottom:32px;display:flex;align-items:center;gap:14px}
+.hero-eyebrow::before{content:'';width:40px;height:1px;background:var(--au)}
+.hero-h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(52px,7vw,96px);line-height:.92;letter-spacing:.01em;color:var(--wh);margin-bottom:16px;font-weight:700}
+.hero-h1 span{color:var(--au)}
+.hero-sub{font-family:'Playfair Display',Georgia,serif;font-size:clamp(22px,3vw,36px);color:rgba(253,252,248,.5);font-weight:400;margin-bottom:48px;line-height:1.3}
+.hero-desc{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:16px;color:var(--mu);line-height:1.9;max-width:520px;margin-bottom:56px;border-left:2px solid var(--au);padding-left:24px}
+.hero-cta{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.btn-primary{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:var(--au);padding:18px 52px;text-decoration:none;font-weight:500;transition:background .2s;display:inline-block}
+.btn-primary:hover{background:var(--aul)}
+.btn-ghost{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mu);border-bottom:1px solid rgba(245,240,228,.2);text-decoration:none;padding-bottom:2px;transition:all .2s}
+.btn-ghost:hover{color:var(--au);border-color:var(--au)}
+.hero-stats{position:absolute;right:80px;bottom:80px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(199,168,120,.15);border:1px solid rgba(199,168,120,.15);z-index:2}
+.hero-stat{background:rgba(22,35,28,.9);backdrop-filter:blur(8px);padding:28px 36px}
+.hero-stat-n{font-family:'Playfair Display',Georgia,serif;font-size:38px;color:var(--au);display:block;line-height:1}
+.hero-stat-l{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mu);margin-top:6px}
+
+/* SECTIONS */
+.section-dark{background:var(--gd);padding:120px 80px}
+.section-mid{background:var(--g);padding:120px 80px}
+.eb{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--au);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.eb::before{content:'';width:32px;height:1px;background:var(--au)}
+.sh{font-family:'Playfair Display',Georgia,serif;font-size:clamp(32px,4vw,52px);font-weight:700;color:var(--wh);line-height:1.1;margin-bottom:8px;letter-spacing:.01em}
+
+/* PROCESS */
+.process-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:72px}
+.process-steps{display:flex;flex-direction:column}
+.process-step{display:grid;grid-template-columns:60px 1fr;padding:32px 0;border-top:1px solid rgba(199,168,120,.1)}
+.process-step:last-child{border-bottom:1px solid rgba(199,168,120,.1)}
+.ps-n{font-family:'Playfair Display',Georgia,serif;font-size:13px;color:rgba(199,168,120,.4);padding-top:3px}
+.ps-n-active{color:var(--au)}
+.process-step h3{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;color:var(--wh);margin-bottom:10px}
+.process-step p{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:14px;color:var(--mu);line-height:1.8}
+.process-visual{position:sticky;top:100px;display:flex;flex-direction:column;gap:16px}
+.pv-block{background:var(--gm);border:1px solid rgba(199,168,120,.12);padding:40px}
+.pv-block h4{font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:var(--au);margin-bottom:18px}
+.pv-block ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.pv-block ul li{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:14px;color:var(--mu);line-height:1.6;padding-left:20px;position:relative}
+.pv-block ul li::before{content:'—';position:absolute;left:0;color:var(--au);font-size:11px}
+.pv-price{background:rgba(199,168,120,.06);border:1px solid rgba(199,168,120,.15);padding:40px}
+.pv-price h4{font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:var(--au);margin-bottom:18px}
+.pv-price p{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:14px;color:var(--mu);line-height:1.8;margin-bottom:8px}
+.pv-price .price-note{font-size:12px;color:rgba(199,168,120,.4);font-style:italic}
+
+
+/* QUOTE */
+.quote-section{background:var(--gd);padding:120px 80px;text-align:center;border-top:1px solid rgba(199,168,120,.1);border-bottom:1px solid rgba(199,168,120,.1)}
+.quote-section blockquote{font-family:'Playfair Display',Georgia,serif;font-size:clamp(22px,3vw,40px);font-weight:400;font-style:italic;color:var(--cr);line-height:1.55;max-width:800px;margin:0 auto 24px}
+.quote-section blockquote span{color:var(--au);font-style:normal}
+.quote-section cite{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(199,168,120,.35)}
+
+/* CTA FINAL */
+.cta-final{background:var(--g);padding:140px 80px;text-align:center}
+.cta-final h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(36px,5vw,64px);font-weight:700;color:var(--wh);margin-bottom:20px;line-height:1.1}
+.cta-final h2 span{color:var(--au)}
+.cta-final p{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:16px;color:var(--mu);line-height:1.8;max-width:520px;margin:0 auto 52px}
+.cta-final .btn-primary{font-size:12px;padding:20px 64px}
+
+/* FOOTER */
+footer{background:var(--gd);border-top:1px solid rgba(199,168,120,.12)}
+.ft{padding:80px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;border-bottom:1px solid rgba(199,168,120,.08)}
+.fb p{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:13px;color:var(--mu);line-height:1.8;margin-top:20px;max-width:260px}
+.fc h4{font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:rgba(199,168,120,.35);margin-bottom:20px}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.fc a{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:300;color:var(--mu);text-decoration:none;transition:color .2s}
+.fc a:hover{color:var(--au)}
+.fbo{padding:24px 80px;display:flex;justify-content:space-between;align-items:center}
+.fbo p{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.06em;color:rgba(199,168,120,.25)}
+
+/* ANIMATE */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .75s ease,transform .75s ease}
+.rv.in{opacity:1;transform:translateY(0)}
+
+@media(max-width:960px){
+  nav{padding:0 24px} .nl{display:none}
+  .hero-inner{padding:60px 28px}
+  .hero-stats{position:static;margin:40px 28px 0;grid-template-columns:1fr 1fr}
+  .section-dark,.section-mid,.quote-section,.cta-final{padding:80px 28px}
+  .process-grid,.diff-grid{grid-template-columns:1fr}
+  .ft{padding:60px 28px;grid-template-columns:1fr 1fr;gap:36px}
+  .fbo{padding:20px 28px;flex-direction:column;gap:8px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="lm"><svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+  <g>
+    <path fill="#c7a878" d="M369.48,121.89c-1.03,2.07-3.45,3.45-7.59,3.79-3.79,11.03-9.66,25.86-15.17,38.62h125.17v271.03h-24.14v-18.28h-187.93v20.34h-23.1V164.31h85.52c6.21-15.17,12.41-34.83,15.52-48.62l31.72,6.21ZM447.75,187.06h-187.93v55.17h187.93v-55.17ZM447.75,263.96h-187.93v54.48h187.93v-54.48ZM259.83,394.99h187.93v-54.83h-187.93v54.83Z"/>
+    <path fill="#c7a878" d="M682.25,387.06c0,14.48,4.14,17.59,26.55,17.59h77.93c20,0,23.45-8.97,25.86-54.14,5.86,4.48,15.86,8.62,23.1,10.34-3.79,52.07-11.72,66.55-48.27,66.55h-79.65c-38.96,0-50.34-8.28-50.34-40.34v-62.07l-123.45,15.86-3.45-22.07,126.89-15.86v-57.58c-30.69,7.59-63.1,14.48-93.79,20-1.38-5.52-4.83-14.14-7.59-19.65,67.93-12.76,144.82-32.07,186.89-52.41l21.38,19.66c-1.03,1.03-2.41,1.38-4.14,1.38-1.03,0-2.07,0-3.1-.34-20.34,8.62-46.55,17.24-75.52,25.17l7.59.34c-.34,2.41-2.07,4.14-6.9,4.83v55.52l157.58-20,3.45,21.38-161.03,20.69v65.17ZM564.66,181.2v50h-23.45v-72.41h132.07v-42.76l31.03,2.07c-.34,2.41-2.07,4.14-6.9,4.83v35.86h133.45v72.41h-24.14v-50h-242.07Z"/>
+  </g>
+  <g class="logo-wordmark">
+    <path d="M157.72,759.63h-47.68c-31.19,0-56.74-25.55-56.74-56.74v-23.32h46.49v23.32c0,5.5,4.6,10.1,10.25,10.1h47.68c5.64,0,10.25-4.6,10.25-10.1v-95.5h-92.38v-46.49h138.87v141.99c0,31.19-25.4,56.74-56.74,56.74Z"/>
+    <path d="M283.21,759.63h-46.49v-198.73h46.49v198.73Z"/>
+    <path d="M409.45,759.63h-46.64v-152.24h-57.33v-46.49h161.3v46.49h-57.33v152.24Z"/>
+    <path d="M651.69,759.63h-47.83l-14.56-64.91h-70.25l-14.7,64.91h-47.68l44.71-198.73h105.45l44.86,198.73ZM578.77,648.23l-9.06-40.84h-31.04l-9.21,40.84h49.31Z"/>
+    <path d="M841.94,759.63h-58.07l-58.37-78.42-7.28,7.13v71.29h-46.49v-198.73h46.49v61.64l61.79-61.64h65.8l-87.04,87.04,83.17,111.69Z"/>
+    <path d="M969.96,759.63h-47.83c-31.19,0-56.74-25.55-56.74-56.74v-141.99h46.64v141.99c0,5.5,4.6,10.1,10.1,10.1h47.68c5.64,0,10.25-4.6,10.25-10.1v-141.99h46.64v141.99c0,31.19-25.55,56.59-56.74,56.74Z"/>
+  </g>
+  <g>
+    <path fill="#c7a878" d="M236.72,884.46h52.49v12.84h-19.21v52.6h19.21v12.85h-52.49v-12.85h19.21v-52.6h-19.21v-12.84Z"/>
+    <path fill="#c7a878" d="M358.81,884.57h14.07v78.18h-13.07l-34.62-51.6h-.56v51.6h-13.96v-78.18h12.96l34.73,51.71h.45v-51.71Z"/>
+    <path fill="#c7a878" d="M391.99,884.57h56.96v12.85h-21.44v65.33h-14.07v-65.33h-21.44v-12.85Z"/>
+    <path fill="#c7a878" d="M525.47,949.9v12.85h-52.49v-78.18h51.49v12.96h-37.3v20.33h34.18v11.62h-34.18v20.44h38.31Z"/>
+    <path fill="#c7a878" d="M589.82,931.93l17.2,30.83h-15.52l-16.31-28.82h-12.17v28.82h-14.07v-78.18h30.6c15.3,0,25.46,9.38,25.46,24.68,0,11.17-6.03,19.1-15.19,22.68ZM563.01,921.65h15.52c7.59,0,12.06-4.91,12.06-12.17s-4.47-12.06-12.06-12.06h-15.52v24.23Z"/>
+    <path fill="#c7a878" d="M630.49,884.46h52.49v12.84h-19.21v52.6h19.21v12.85h-52.49v-12.85h19.21v-52.6h-19.21v-12.84Z"/>
+    <path fill="#c7a878" d="M766.65,923.77c0,26.02-13.18,40.54-31.05,40.54s-31.16-14.52-31.16-40.54,13.18-40.65,31.16-40.65,31.05,14.3,31.05,40.65ZM752.57,923.77c0-18.65-7.04-27.7-16.98-27.7s-17.09,9.04-17.09,27.7,7.15,27.7,17.09,27.7,16.98-9.27,16.98-27.7Z"/>
+    <path fill="#c7a878" d="M826.08,931.93l17.2,30.83h-15.52l-16.31-28.82h-12.17v28.82h-14.07v-78.18h30.6c15.3,0,25.46,9.38,25.46,24.68,0,11.17-6.03,19.1-15.19,22.68ZM799.27,921.65h15.52c7.59,0,12.06-4.91,12.06-12.17s-4.47-12.06-12.06-12.06h-15.52v24.23Z"/>
+  </g>
+</svg></a>
+  <ul class="nl">
+    <li><a href="#proces">Aanpak</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="index.html">Online advies</a></li>
+  </ul>
+  <a href="mailto:hallo@jitaku.nl" class="nc">Plan een kennismaking</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner rv">
+    <div class="hero-eyebrow">JITAKU op locatie</div>
+    <h1 class="hero-h1">VAN PLINT<br>TOT <span>PLAFOND</span></h1>
+    <span class="hero-sub">volledig uitgewerkt.</span>
+    <p class="hero-desc">We komen bij je thuis, meten in en leveren fotorealistische 3D renders, werktekeningen en een compleet interieurplan — van eerste idee tot aannemer-klare documentatie.</p>
+    <div class="hero-cta">
+      <a href="#proces" class="btn-ghost" style="font-size:12px;letter-spacing:.2em">Ontdek hoe we werken ↓</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="hero-stat-n">3D</span><span class="hero-stat-l">Fotorealistisch</span></div>
+    <div class="hero-stat"><span class="hero-stat-n">1:1</span><span class="hero-stat-l">Op locatie</span></div>
+    <div class="hero-stat"><span class="hero-stat-n">∞</span><span class="hero-stat-l">Ruimtes mogelijk</span></div>
+    <div class="hero-stat"><span class="hero-stat-n">✦</span><span class="hero-stat-l">Vaste prijs vooraf</span></div>
+  </div>
+</section>
+
+<!-- PROCES -->
+<section class="section-dark" id="proces">
+  <div class="rv"><div class="eb">Aanpak</div><h2 class="sh">Hoe het traject werkt</h2></div>
+  <div class="process-grid">
+    <div class="process-steps rv">
+      <div class="process-step">
+        <span class="ps-n ps-n-active">01</span>
+        <div><h3>Kennismaking — online</h3><p>We beginnen met een kort online gesprek van ca. 15 minuten. We bespreken je woning, wensen en budget — zo weten we allebei meteen of en hoe we verder gaan.</p></div>
+      </div>
+      <div class="process-step">
+        <span class="ps-n">02</span>
+        <div><h3>Opname op locatie</h3><p>We komen langs en meten alles nauwkeurig in. Geen aannames op basis van foto's — we zien de ruimte met eigen ogen en letten op lichtinval, verhoudingen en mogelijkheden.</p></div>
+      </div>
+      <div class="process-step">
+        <span class="ps-n">03</span>
+        <div><h3>Plattegronden & digitaal consult</h3><p>We werken de plattegronden uit op schaal en plannen een digitaal consult om de richting samen door te nemen. Zo zijn we op één lijn voordat we verder uitwerken.</p></div>
+      </div>
+      <div class="process-step">
+        <span class="ps-n">04</span>
+        <div><h3>Uitwerking & 3D renders</h3><p>Elke ruimte wordt fotorealistisch gerenderd. Je ziet exact hoe het eindresultaat eruitziet — vóór er één schroef is gedraaid. Inclusief meubels, materialen en licht.</p></div>
+      </div>
+      <div class="process-step">
+        <span class="ps-n">05</span>
+        <div><h3>Conceptwerktekeningen</h3><p>Voor keukens, kasten en maatwerk onderdelen leveren we conceptwerktekeningen aan — klaar om te bespreken met een aannemer, timmerman of keukenstudio.</p></div>
+      </div>
+      <div class="process-step">
+        <span class="ps-n">06</span>
+        <div><h3>Klankbord & oplevering</h3><p>We sluiten af met een persoonlijk videogesprek — of met een glas bubbels als alles klaar is. We werken samen met partijen die de uitvoering voor je kunnen begeleiden.</p></div>
+      </div>
+    </div>
+    <div class="process-visual rv" style="transition-delay:.15s">
+      <div class="pv-block">
+        <h4>Wat je ontvangt</h4>
+        <ul>
+          <li>Opname op locatie inclusief inmeten</li>
+          <li>Plattegrond op schaal met meubelverdeling</li>
+          <li>Fotorealistische 3D renders per ruimte</li>
+          <li>Moodboard & compleet materiaal- en kleurpalet</li>
+          <li>Productlijst met aankoopsuggesties</li>
+          <li>Advies verlichtingsarmaturen</li>
+          <li>Conceptwerktekeningen voor maatwerkonderdelen</li>
+          <li>Één revisieronde inbegrepen</li>
+          <li>Afsluiting via videogesprek — of met een glas bubbels</li>
+        </ul>
+      </div>
+      <div class="pv-price">
+        <h4>Tarief</h4>
+        <p>Op basis van scope en verbouwbudget — altijd een vaste prijs vooraf.</p>
+        <p>Geen verrassingen achteraf. Geen uurtje-factuurtje.</p>
+        <p class="price-note">Vrijblijvende kennismaking zonder kosten.</p>
+        <div style="margin-top:20px;padding-top:20px;border-top:1px solid rgba(199,168,120,.15)">
+          <p style="font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--au);margin-bottom:8px">Bouwbegeleiding</p>
+          <p style="font-size:13px;line-height:1.7">Wil je dat we de uitvoering ook begeleiden? Dat kan — we gaan graag met je in gesprek over de mogelijkheden.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- QUOTE -->
+<div class="quote-section">
+  <div class="rv">
+    <blockquote>"Een goed interieur begint niet bij meubels — het begint bij begrijpen hoe jij in een ruimte <span>leeft.</span>"</blockquote>
+    <cite>— JITAKU INTERIOR</cite>
+  </div>
+</div>
+
+<!-- CTA FINAL -->
+<section class="cta-final" id="contact">
+  <div class="rv">
+    <h2>Klaar om te beginnen?<br><span>Laten we kennismaken.</span></h2>
+    <p>Plan een vrijblijvende online kennismaking van 15 minuten. We bespreken je woning, wensen en wat het traject inhoudt — zonder verplichtingen, zonder kosten vooraf.</p>
+    <a href="mailto:hallo@jitaku.nl" class="btn-primary">Plan een kennismaking →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="ft">
+    <div class="fb">
+      <a href="index.html" class="lm"><svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+  <g><path fill="#c7a878" d="M369.48,121.89c-1.03,2.07-3.45,3.45-7.59,3.79-3.79,11.03-9.66,25.86-15.17,38.62h125.17v271.03h-24.14v-18.28h-187.93v20.34h-23.1V164.31h85.52c6.21-15.17,12.41-34.83,15.52-48.62l31.72,6.21ZM447.75,187.06h-187.93v55.17h187.93v-55.17ZM447.75,263.96h-187.93v54.48h187.93v-54.48ZM259.83,394.99h187.93v-54.83h-187.93v54.83Z"/><path fill="#c7a878" d="M682.25,387.06c0,14.48,4.14,17.59,26.55,17.59h77.93c20,0,23.45-8.97,25.86-54.14,5.86,4.48,15.86,8.62,23.1,10.34-3.79,52.07-11.72,66.55-48.27,66.55h-79.65c-38.96,0-50.34-8.28-50.34-40.34v-62.07l-123.45,15.86-3.45-22.07,126.89-15.86v-57.58c-30.69,7.59-63.1,14.48-93.79,20-1.38-5.52-4.83-14.14-7.59-19.65,67.93-12.76,144.82-32.07,186.89-52.41l21.38,19.66c-1.03,1.03-2.41,1.38-4.14,1.38-1.03,0-2.07,0-3.1-.34-20.34,8.62-46.55,17.24-75.52,25.17l7.59.34c-.34,2.41-2.07,4.14-6.9,4.83v55.52l157.58-20,3.45,21.38-161.03,20.69v65.17ZM564.66,181.2v50h-23.45v-72.41h132.07v-42.76l31.03,2.07c-.34,2.41-2.07,4.14-6.9,4.83v35.86h133.45v72.41h-24.14v-50h-242.07Z"/></g>
+  <g class="logo-wordmark"><path d="M157.72,759.63h-47.68c-31.19,0-56.74-25.55-56.74-56.74v-23.32h46.49v23.32c0,5.5,4.6,10.1,10.25,10.1h47.68c5.64,0,10.25-4.6,10.25-10.1v-95.5h-92.38v-46.49h138.87v141.99c0,31.19-25.4,56.74-56.74,56.74Z"/><path d="M283.21,759.63h-46.49v-198.73h46.49v198.73Z"/><path d="M409.45,759.63h-46.64v-152.24h-57.33v-46.49h161.3v46.49h-57.33v152.24Z"/><path d="M651.69,759.63h-47.83l-14.56-64.91h-70.25l-14.7,64.91h-47.68l44.71-198.73h105.45l44.86,198.73ZM578.77,648.23l-9.06-40.84h-31.04l-9.21,40.84h49.31Z"/><path d="M841.94,759.63h-58.07l-58.37-78.42-7.28,7.13v71.29h-46.49v-198.73h46.49v61.64l61.79-61.64h65.8l-87.04,87.04,83.17,111.69Z"/><path d="M969.96,759.63h-47.83c-31.19,0-56.74-25.55-56.74-56.74v-141.99h46.64v141.99c0,5.5,4.6,10.1,10.1,10.1h47.68c5.64,0,10.25-4.6,10.25-10.1v-141.99h46.64v141.99c0,31.19-25.55,56.59-56.74,56.74Z"/></g>
+  <g><path fill="#c7a878" d="M236.72,884.46h52.49v12.84h-19.21v52.6h19.21v12.85h-52.49v-12.85h19.21v-52.6h-19.21v-12.84Z"/><path fill="#c7a878" d="M358.81,884.57h14.07v78.18h-13.07l-34.62-51.6h-.56v51.6h-13.96v-78.18h12.96l34.73,51.71h.45v-51.71Z"/><path fill="#c7a878" d="M391.99,884.57h56.96v12.85h-21.44v65.33h-14.07v-65.33h-21.44v-12.85Z"/><path fill="#c7a878" d="M525.47,949.9v12.85h-52.49v-78.18h51.49v12.96h-37.3v20.33h34.18v11.62h-34.18v20.44h38.31Z"/><path fill="#c7a878" d="M589.82,931.93l17.2,30.83h-15.52l-16.31-28.82h-12.17v28.82h-14.07v-78.18h30.6c15.3,0,25.46,9.38,25.46,24.68,0,11.17-6.03,19.1-15.19,22.68ZM563.01,921.65h15.52c7.59,0,12.06-4.91,12.06-12.17s-4.47-12.06-12.06-12.06h-15.52v24.23Z"/><path fill="#c7a878" d="M630.49,884.46h52.49v12.84h-19.21v52.6h19.21v12.85h-52.49v-12.85h19.21v-52.6h-19.21v-12.84Z"/><path fill="#c7a878" d="M766.65,923.77c0,26.02-13.18,40.54-31.05,40.54s-31.16-14.52-31.16-40.54,13.18-40.65,31.16-40.65,31.05,14.3,31.05,40.65ZM752.57,923.77c0-18.65-7.04-27.7-16.98-27.7s-17.09,9.04-17.09,27.7,7.15,27.7,17.09,27.7,16.98-9.27,16.98-27.7Z"/><path fill="#c7a878" d="M826.08,931.93l17.2,30.83h-15.52l-16.31-28.82h-12.17v28.82h-14.07v-78.18h30.6c15.3,0,25.46,9.38,25.46,24.68,0,11.17-6.03,19.1-15.19,22.68ZM799.27,921.65h15.52c7.59,0,12.06-4.91,12.06-12.17s-4.47-12.06-12.06-12.06h-15.52v24.23Z"/></g>
+</svg></a>
+      <p>Volledig interieurtraject op locatie — van kennismaking tot aannemer-klare documentatie.</p>
+    </div>
+    <div class="fc"><h4>Aanpak</h4><ul><li><a href="#proces">Het traject</a></li><li><a href="#verschil">Online vs. Locatie</a></li></ul></div>
+    <div class="fc"><h4>JITAKU</h4><ul><li><a href="index.html">Online advies</a></li><li><a href="jitaku-intake.html">Start intake</a></li></ul></div>
+    <div class="fc"><h4>Contact</h4><ul><li><a href="mailto:hallo@jitaku.nl">hallo@jitaku.nl</a></li><li><a href="#">Instagram</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="fbo"><p>©️ 2026 JITAKU INTERIOR</p><p>Privacybeleid · Algemene voorwaarden</p></div>
+</footer>
+
+<script>
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')}),{threshold:.07});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
