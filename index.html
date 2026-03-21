@@ -23,10 +23,10 @@ body{font-family:'Inter',Helvetica,Arial,sans-serif;background:var(--cr);color:v
 .ls{font-family:'DM Sans',sans-serif;font-size:8px;letter-spacing:.45em;text-transform:uppercase}
 .od .ln{color:var(--wh)} .od .ls{color:var(--au)}
 .ol .ln{color:var(--ink)} .ol .ls{color:var(--aud)}
-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 64px;background:rgba(30,46,38,.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(199,168,120,.18)}
+nav{position:fixed;top:0;left:0;right:0;z-index:300;height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 64px;background:rgba(245,240,228,.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(160,127,74,.15)}
 .nl{display:flex;gap:40px;list-style:none}
-.nl a{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mu);text-decoration:none;transition:color .2s}
-.nl a:hover{color:var(--au)}
+.nl a{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);opacity:.6;text-decoration:none;transition:all .2s}
+.nl a:hover{color:var(--aud);opacity:1}
 .nc{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:var(--au);padding:11px 28px;text-decoration:none;font-weight:500;transition:background .2s}
 .nc:hover{background:var(--aul)}
 .hero{min-height:100vh;background:var(--g);display:grid;grid-template-columns:1fr 1fr;padding-top:76px;position:relative;overflow:hidden}
@@ -175,8 +175,11 @@ footer{background:var(--gd);border-top:1px solid rgba(199,168,120,.18)}
 }
 
 .logo-svg{height:64px;width:auto;display:block}
-.logo-svg .logo-wordmark path{fill:#fdfcf8}
-nav .logo-svg .logo-wordmark path{fill:#fdfcf8}
+.logo-svg .logo-wordmark path{fill:#1e2e26}
+nav .logo-svg .logo-wordmark path{fill:#1e2e26}
+
+.locatie-bridge{background:var(--g);padding:120px 80px}
+.locatie-bridge .sh-inline{color:var(--wh)}
 </style>
 </head>
 <body>
@@ -205,8 +208,7 @@ nav .logo-svg .logo-wordmark path{fill:#fdfcf8}
     <path fill="#c7a878" d="M826.08,931.93l17.2,30.83h-15.52l-16.31-28.82h-12.17v28.82h-14.07v-78.18h30.6c15.3,0,25.46,9.38,25.46,24.68,0,11.17-6.03,19.1-15.19,22.68ZM799.27,921.65h15.52c7.59,0,12.06-4.91,12.06-12.17s-4.47-12.06-12.06-12.06h-15.52v24.23Z"/>
   </g>
 </svg></a>
-  <ul class="nl"><li><a href="#ww">Werkwijze</a></li><li><a href="#ds">Diensten</a></li><li><a href="#contact">Contact</a></li></ul>
-  <a href="jitaku-intake.html" class="nc">Intake starten</a>
+  <ul class="nl"><li><a href="#ww">Werkwijze</a></li><li><a href="#ds">Diensten</a></li><li><a href="jitaku-locatie.html">Op locatie</a></li><li><a href="#contact">Contact</a></li></ul>
 </nav>
 
 <section class="hero">
@@ -323,88 +325,18 @@ nav .logo-svg .logo-wordmark path{fill:#fdfcf8}
 </section>
 
 
-<!-- DIVIDER: online → op locatie -->
-<div class="ol-divider">
-  <span class="ol-divider-label">Online advies</span>
-  <div class="ol-divider-line"></div>
-  <span class="ol-divider-title">JITAKU OP LOCATIE</span>
-  <div class="ol-divider-line"></div>
-  <span class="ol-divider-label">Volledig ontzorgd</span>
-</div>
 
-<!-- JITAKU OP LOCATIE -->
-<section class="ol-section" id="locatie">
+<!-- LOCATIE CTA -->
+<div class="locatie-bridge">
   <div class="rv">
-    <div class="ebl">Op locatie</div>
-    <h2 class="shl-inline">Van plint tot plafond</h2>
-    <p style="font-family:'Inter',Helvetica,Arial,sans-serif;font-size:16px;color:var(--mu);line-height:1.85;max-width:560px;margin-top:16px">Voor wie niet wil nadenken over de details. We komen bij je thuis, meten in, werken alles uit in 3D en begeleiden je van eerste idee tot afgewerkte ruimte.</p>
+    <p style="font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--aud);margin-bottom:16px">Meer nodig?</p>
+    <h2 class="sh-inline" style="margin-bottom:16px">JITAKU op locatie</h2>
+    <p style="font-family:'Inter',Helvetica,Arial,sans-serif;font-size:15px;color:#5a5040;line-height:1.8;max-width:520px;margin-bottom:32px">Van plint tot plafond volledig uitgewerkt — wij komen bij je thuis, meten in en leveren fotorealistische 3D renders en werktekeningen.</p>
+    <a href="jitaku-locatie.html" class="bg">Bekijk het volledige traject →</a>
   </div>
-
-  <div class="ol-grid">
-    <div class="ol-steps rv">
-      <div class="ol-step">
-        <span class="ol-step-n">01</span>
-        <div>
-          <h3>Kennismaking op locatie</h3>
-          <p>We komen langs, bekijken de ruimte met eigen ogen en meten alles nauwkeurig in. Geen aannames op basis van foto's.</p>
-        </div>
-      </div>
-      <div class="ol-step">
-        <span class="ol-step-n">02</span>
-        <div>
-          <h3>3D uitwerking</h3>
-          <p>Elke ruimte wordt fotorealistisch gerenderd. Je ziet exact hoe het eindresultaat eruitziet — vóór er één schroef gedraaid is.</p>
-        </div>
-      </div>
-      <div class="ol-step">
-        <span class="ol-step-n">03</span>
-        <div>
-          <h3>Werktekeningen</h3>
-          <p>Voor keukens, kasten en maatwerk leveren we technische tekeningen aan. Klaar om direct aan een aannemer of timmerman te geven.</p>
-        </div>
-      </div>
-      <div class="ol-step">
-        <span class="ol-step-n">04</span>
-        <div>
-          <h3>Begeleiding & revisie</h3>
-          <p>We stemmen het plan met je af, passen aan waar nodig en blijven beschikbaar tijdens de uitvoering als klankbord.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="ol-visual rv" style="transition-delay:.15s">
-      <div class="ol-visual-block">
-        <h4>Wat je ontvangt</h4>
-        <ul>
-          <li>Opname op locatie inclusief inmeten</li>
-          <li>3D renders per ruimte, fotorealistisch</li>
-          <li>Moodboard & materiaalpalet</li>
-          <li>Werktekeningen voor maatwerk</li>
-          <li>Productlijst met concrete aankoopsuggesties</li>
-          <li>Lichtplan met armatuuradvies</li>
-          <li>Één revisieronde standaard inbegrepen</li>
-          <li>Persoonlijk videogesprek voor oplevering</li>
-        </ul>
-      </div>
-      <div class="ol-visual-block" style="background:rgba(199,168,120,.06)">
-        <h4>Tarief</h4>
-        <ul>
-          <li>Op basis van scope en verbouwbudget</li>
-          <li>Altijd een vaste prijs vooraf — geen verrassingen</li>
-          <li>Vraag een vrijblijvende kennismaking aan</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="ol-cta">
-  <div class="ol-cta-text rv">
-    <h3>Klaar voor het volledige traject?</h3>
-    <p>Plan een vrijblijvende kennismaking. We bespreken de ruimte, de wensen en wat het traject inhoudt — zonder verplichtingen.</p>
-  </div>
-  <a href="mailto:hallo@jitaku.nl" class="btn-contact rv" style="transition-delay:.1s">Plan een kennismaking</a>
 </div>
+
+<footer
 
 <footer id="contact">
   <div class="ft">
@@ -433,9 +365,9 @@ nav .logo-svg .logo-wordmark path{fill:#fdfcf8}
     <path fill="#c7a878" d="M826.08,931.93l17.2,30.83h-15.52l-16.31-28.82h-12.17v28.82h-14.07v-78.18h30.6c15.3,0,25.46,9.38,25.46,24.68,0,11.17-6.03,19.1-15.19,22.68ZM799.27,921.65h15.52c7.59,0,12.06-4.91,12.06-12.17s-4.47-12.06-12.06-12.06h-15.52v24.23Z"/>
   </g>
 </svg></a>
-      <p>Online interieuradvies én volledige begeleiding op locatie — van eerste schets tot afgewerkte ruimte.</p>
+      <p>Online interieuradvies op afstand — concreet, snel en zonder huisbezoek.</p>
     </div>
-    <div class="fc"><h4>Navigatie</h4><ul><li><a href="#ww">Werkwijze</a></li><li><a href="#ds">Diensten</a></li><li><a href="jitaku-intake.html">Intake starten</a></li><li><a href="#locatie">Op locatie</a></li></ul></div>
+    <div class="fc"><h4>Navigatie</h4><ul><li><a href="#ww">Werkwijze</a></li><li><a href="#ds">Diensten</a></li><li><a href="jitaku-intake.html">Intake starten</a></li><li><a href="jitaku-locatie.html">Op locatie</a></li></ul></div>
     <div class="fc"><h4>Bedrijf</h4><ul><li><a href="#">Over JITAKU</a></li><li><a href="#">Ons team</a></li></ul></div>
     <div class="fc"><h4>Contact</h4><ul><li><a href="mailto:hallo@jitaku.nl">hallo@jitaku.nl</a></li><li><a href="#">Instagram</a></li><li><a href="#">LinkedIn</a></li></ul></div>
   </div>
