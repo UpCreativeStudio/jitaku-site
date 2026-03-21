@@ -43,9 +43,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:76px;display:flex;ali
 .bg:hover{background:var(--aul)}
 .bo{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cr);border-bottom:1px solid rgba(245,240,228,.25);text-decoration:none;padding-bottom:2px;transition:color .2s,border-color .2s}
 .bo:hover{color:var(--au);border-color:var(--au)}
-.hr{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:60px;border-left:1px solid rgba(199,168,120,.12)}
+.hr{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:0;border-left:1px solid rgba(199,168,120,.12);overflow:hidden}
 .hroom{position:absolute;inset:0;width:100%;height:100%}
-.hst{position:relative;z-index:3;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(199,168,120,.2);border:1px solid rgba(199,168,120,.2)}
+.hst{position:absolute;bottom:0;right:0;z-index:3;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(199,168,120,.2);border:1px solid rgba(199,168,120,.2)}
 .st{background:rgba(30,46,38,.88);backdrop-filter:blur(8px);padding:22px 26px}
 .sn{font-family:'Playfair Display',Georgia,serif;font-size:30px;color:var(--au);display:block}
 .sl{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mu);margin-top:2px}
@@ -71,7 +71,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:76px;display:flex;ali
 .wsn{font-family:'Playfair Display',Georgia,serif;font-size:13px;font-style:italic;color:var(--aud);padding-top:4px}
 .ws h3{font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;margin-bottom:10px;color:var(--ink)}
 .ws p{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:14px;color:#5a5040;line-height:1.8}
-.wwv{background:var(--cr);overflow:hidden;display:flex;flex-direction:column;justify-content:flex-start;position:sticky;top:100px}
+.wwv{background:var(--cr);overflow:hidden;display:flex;flex-direction:column;justify-content:flex-start;position:sticky;top:92px;align-self:start}
 .wwl{position:relative;z-index:2;padding:20px 28px;border-top:1px solid rgba(199,168,120,.2);font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--au)}
 .ds{background:var(--g);padding:120px 80px}
 .dg{display:grid;grid-template-columns:repeat(3,1fr);margin-top:64px;border:1px solid rgba(199,168,120,.18);gap:1px;background:rgba(199,168,120,.12)}
@@ -124,7 +124,7 @@ footer{background:var(--gd);border-top:1px solid rgba(199,168,120,.18)}
 }
 
 .wwv{position:relative;overflow:hidden}
-.img-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;width:100%}
+.img-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;width:100%;background:var(--crd)}
 .ig-cell{position:relative;overflow:hidden;aspect-ratio:4/3}
 .ig-cell.ig-empty{background:var(--crd)}
 .ig-wide{grid-column:1/-1;position:relative;overflow:hidden;aspect-ratio:16/5}
@@ -241,9 +241,9 @@ nav .logo-svg .logo-wordmark path{fill:#fdfcf8}
       <ellipse cx="432" cy="356" rx="38" ry="14" fill="rgba(30,46,38,.9)" stroke="rgba(199,168,120,.2)" stroke-width=".7"/>
       <ellipse cx="432" cy="430" rx="100" ry="150" fill="rgba(199,168,120,.04)"/>
       <rect x="460" y="622" width="22" height="50" rx="2" fill="rgba(245,240,228,.03)" stroke="rgba(199,168,120,.1)" stroke-width=".5"/>
-      <ellipse cx="471" cy="618" rx="38" ry="30" fill="rgba(36,56,41,.65)"/>
-      <ellipse cx="452" cy="596" rx="26" ry="24" fill="rgba(28,48,36,.55)"/>
-      <ellipse cx="490" cy="602" rx="22" ry="20" fill="rgba(40,60,47,.5)"/>
+      <ellipse cx="471" cy="618" rx="38" ry="30" fill="rgba(38,77,59,.65)"/>
+      <ellipse cx="452" cy="596" rx="26" ry="24" fill="rgba(30,64,48,.55)"/>
+      <ellipse cx="490" cy="602" rx="22" ry="20" fill="rgba(42,80,62,.5)"/>
       <text x="460" y="240" font-size="130" font-family="'Noto Serif JP',serif" fill="rgba(199,168,120,.04)" text-anchor="middle">自</text>
     </svg>
     <div class="hst">
@@ -300,17 +300,17 @@ nav .logo-svg .logo-wordmark path{fill:#fdfcf8}
   <div class="rv"><div class="eb">Beginnen</div><h2 class="sh-inline">Start de intake</h2></div>
   <div class="iti">
     <div class="ic rv">
-      <h3>Minder dan vijf minuten</h3>
+      <h3>Start vandaag</h3>
       <p>Vul een kort formulier in over je woning, je wensen en je budget. Daarna krijg je direct toegang tot je persoonlijke omgeving om foto's te uploaden.</p>
       <p>Geen verplichtingen, geen kosten vooraf. We nemen binnen twee werkdagen contact op.</p>
-      <a href="jitaku-intake.html" class="bg" style="margin-top:16px">Naar de intake →</a>
+
     </div>
     <div class="mk rv" style="transition-delay:.15s">
       <div class="mf2"><span class="ml">Naam</span><div class="mi">Sophie van den Berg</div></div>
       <div class="mf2"><span class="ml">E-mailadres</span><div class="mi">sophie@email.nl</div></div>
       <div class="mf2"><span class="ml">Type ruimte</span><div class="mi em">Selecteer...</div></div>
       <div class="mf2"><span class="ml">Wat wil je veranderen?</span><div class="mi em" style="height:70px;align-items:flex-start;padding-top:12px">Alles voelt wat kaal en rommelig…</div></div>
-      <div class="mb">Volgende stap →</div>
+      <a href="jitaku-intake.html" class="mb" style="text-decoration:none">Start de intake →</a>
     </div>
   </div>
 </section>
