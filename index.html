@@ -3,379 +3,819 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JITAKU INTERIOR</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+JP:wght@300;400&family=Inter:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Jitaku Interior</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Jost:wght@300;400;500&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-:root{
-  --g:#1e2e26;--gd:#16231c;--gm:#243829;
-  --cr:#f5f0e4;--crd:#e8e0cc;
-  --au:#c7a878;--aul:#d8bc96;--aud:#a07f4a;
-  --wh:#fdfcf8;--ink:#0f1c14;
-  --mu:rgba(245,240,228,0.65)
-}
-body{font-family:'Inter',Helvetica,Arial,sans-serif;background:var(--cr);color:var(--ink);overflow-x:hidden}
-.lm{display:flex;flex-direction:column;align-items:center;text-decoration:none;line-height:1}
-.lk{font-family:'Noto Serif JP',serif;font-size:22px;font-weight:300;color:var(--au);line-height:1}
-.ln{font-family:'Playfair Display',Georgia,serif;font-size:17px;letter-spacing:.22em;text-transform:uppercase;line-height:1.1}
-.ls{font-family:'DM Sans',sans-serif;font-size:8px;letter-spacing:.45em;text-transform:uppercase}
-.od .ln{color:var(--wh)} .od .ls{color:var(--au)}
-.ol .ln{color:var(--ink)} .ol .ls{color:var(--aud)}
-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 64px;background:rgba(30,46,38,.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(199,168,120,.18)}
-.nl{display:flex;gap:40px;list-style:none}
-.nl a{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mu);text-decoration:none;transition:color .2s}
-.nl a:hover{color:var(--au)}
-.nc{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:var(--au);padding:11px 28px;text-decoration:none;font-weight:500;transition:background .2s}
-.nc:hover{background:var(--aul)}
-.hero{min-height:100vh;background:var(--g);display:grid;grid-template-columns:1fr 1fr;padding-top:76px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(199,168,120,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(199,168,120,.035) 1px,transparent 1px);background-size:64px 64px;pointer-events:none}
-.ht{padding:100px 80px 80px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
-.kk{display:flex;align-items:center;gap:14px;font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--au);margin-bottom:40px}
-.kl{width:36px;height:1px;background:var(--au)}
-.h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(50px,6.5vw,86px);line-height:.94;letter-spacing:.02em;text-transform:uppercase;color:var(--wh);margin-bottom:10px}
-.h1 .g{color:var(--au)}
-.hi{font-family:'Playfair Display',Georgia,serif;font-size:clamp(28px,3.8vw,50px);font-weight:400;font-style:normal;color:rgba(245,240,228,.68);line-height:1.2;margin-bottom:44px;display:block}
-.hd{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:15px;font-style:normal;color:var(--mu);line-height:1.9;max-width:400px;margin-bottom:52px;border-left:2px solid var(--au);padding-left:20px}
-.hb{display:flex;gap:16px;align-items:center}
-.bg{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:var(--au);padding:16px 40px;text-decoration:none;font-weight:500;transition:background .2s;display:inline-block}
-.bg:hover{background:var(--aul)}
-.bo{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cr);border-bottom:1px solid rgba(245,240,228,.25);text-decoration:none;padding-bottom:2px;transition:color .2s,border-color .2s}
-.bo:hover{color:var(--au);border-color:var(--au)}
-.hr{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:0;border-left:1px solid rgba(199,168,120,.12);overflow:hidden}
-.hroom{position:absolute;inset:0;width:100%;height:100%}
-.hst{position:absolute;bottom:0;right:0;z-index:3;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(199,168,120,.2);border:1px solid rgba(199,168,120,.2)}
-.st{background:rgba(30,46,38,.88);backdrop-filter:blur(8px);padding:22px 26px}
-.sn{font-family:'Playfair Display',Georgia,serif;font-size:30px;color:var(--au);display:block}
-.sl{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mu);margin-top:2px}
-.strip{background:var(--gd);border-top:1px solid rgba(199,168,120,.15);border-bottom:1px solid rgba(199,168,120,.15)}
-.sr{display:flex}
-.si{flex:1;padding:26px 44px;border-right:1px solid rgba(199,168,120,.1);display:flex;align-items:center;gap:14px}
-.si:last-child{border-right:none}
-.sin{font-family:'Playfair Display',Georgia,serif;font-size:13px;font-style:italic;color:var(--au);flex-shrink:0}
-.sit{font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:.04em;color:var(--mu);font-weight:300}
-.eb{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--aud);margin-bottom:14px;display:flex;align-items:center;gap:12px}
-.eb::before{content:'';width:32px;height:1px;background:var(--aud)}
-.ebl{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--aud);margin-bottom:14px;display:flex;align-items:center;gap:12px}
-.ebl::before{content:'';width:32px;height:1px;background:var(--aud)}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-
-
-
-.ww{background:var(--cr);padding:120px 80px}
-.wwg{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-top:64px}
-.wws{display:flex;flex-direction:column}
-.ws{display:grid;grid-template-columns:52px 1fr;border-top:1px solid var(--crd);padding:30px 0}
-.ws:last-child{border-bottom:1px solid var(--crd)}
-.wsn{font-family:'Playfair Display',Georgia,serif;font-size:13px;font-style:italic;color:var(--aud);padding-top:4px}
-.ws h3{font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;margin-bottom:10px;color:var(--ink)}
-.ws p{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:14px;color:#5a5040;line-height:1.8}
-.wwv{background:var(--cr);overflow:hidden;display:flex;flex-direction:column;justify-content:flex-start;position:sticky;top:92px;align-self:start}
-.wwl{position:relative;z-index:2;padding:20px 28px;border-top:1px solid rgba(199,168,120,.2);font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--au)}
-.ds{background:var(--g);padding:120px 80px}
-.dg{display:grid;grid-template-columns:repeat(3,1fr);margin-top:64px;border:1px solid rgba(199,168,120,.18);gap:1px;background:rgba(199,168,120,.12)}
-.di{background:var(--g);padding:48px 40px;transition:background .25s}
-.di:hover{background:var(--gm)}
-.din{font-family:'Playfair Display',Georgia,serif;font-size:12px;font-style:italic;color:var(--au);display:block;margin-bottom:18px}
-.di h3{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--wh);margin-bottom:14px}
-.di p{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:14px;color:var(--mu);line-height:1.8}
-.mf{background:var(--gd);padding:120px 80px;border-top:1px solid rgba(199,168,120,.18);border-bottom:1px solid rgba(199,168,120,.18);text-align:center}
-.mf blockquote{font-family:'Playfair Display',Georgia,serif;font-size:clamp(22px,3vw,40px);font-weight:400;font-style:italic;color:var(--cr);line-height:1.55;max-width:800px;margin:0 auto 32px}
-.mf blockquote .g{color:var(--au);font-style:normal}
-.mf cite{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(199,168,120,.4)}
-.it{background:var(--cr);padding:120px 80px}
-.iti{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center;margin-top:64px}
-.ic h3{font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;color:var(--ink);margin-bottom:16px}
-.ic p{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:15px;color:#5a5040;line-height:1.85;margin-bottom:20px}
-.mk{background:var(--g);padding:44px;display:flex;flex-direction:column;gap:18px}
-.mf2{display:flex;flex-direction:column;gap:7px}
-.ml{font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:var(--au)}
-.mi{height:44px;background:rgba(245,240,228,.06);border:1px solid rgba(199,168,120,.22);padding:0 14px;font-family:'Inter',Helvetica,Arial,sans-serif;font-size:14px;color:rgba(245,240,228,.85);display:flex;align-items:center}
-.mi.em{color:rgba(245,240,228,.28);font-style:italic}
-.mb{height:52px;background:var(--au);margin-top:8px;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);font-weight:500;cursor:pointer}
-.es{background:var(--crd);padding:120px 80px}
-.eg{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--crd);margin-top:64px}
-.ev{background:var(--cr);padding:44px;border-top:3px solid var(--au)}
-.eq{font-family:'Playfair Display',Georgia,serif;font-size:15px;font-style:italic;color:var(--ink);line-height:1.85;margin-bottom:28px}
-.en{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#7a6e63}
-.ec{color:var(--aud);display:block;margin-top:3px}
-footer{background:var(--gd);border-top:1px solid rgba(199,168,120,.18)}
-.ft{padding:80px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;border-bottom:1px solid rgba(199,168,120,.1)}
-.fb p{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:13px;font-style:normal;color:var(--mu);line-height:1.8;margin-top:20px;max-width:260px}
-.fc h4{font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:rgba(199,168,120,.4);margin-bottom:20px}
-.fc ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.fc a{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:300;color:var(--mu);text-decoration:none;transition:color .2s}
-.fc a:hover{color:var(--au)}
-.fbo{padding:24px 80px;display:flex;justify-content:space-between;align-items:center}
-.fbo p{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.06em;color:rgba(199,168,120,.3)}
-.rv{opacity:0;transform:translateY(22px);transition:opacity .75s ease,transform .75s ease}
-.rv.in{opacity:1;transform:translateY(0)}
-@media(max-width:960px){
-  nav{padding:0 24px} .nl{display:none}
-  .hero,.wwg,.iti{grid-template-columns:1fr}
-  .hr{min-height:380px} .ht{padding:60px 28px}
-  .ww,.ds,.mf,.it,.es{padding:80px 28px}
-  .dg,.eg{grid-template-columns:1fr}
-  .sr{flex-direction:column}
-  .si{border-right:none;border-bottom:1px solid rgba(199,168,120,.1);padding:18px 28px}
-  .ft{padding:60px 28px;grid-template-columns:1fr 1fr;gap:36px}
-  .fbo{padding:20px 28px;flex-direction:column;gap:8px}
+:root {
+  --sand:    #EDE9DF;
+  --green:   #1E2E22;
+  --gold:    #A8885A;
+  --gold-lt: #C4A478;
+  --kraft:   #C4A06A;
+  --text:    #1A1A14;
+  --muted:   #5A5A50;
 }
 
-.wwv{position:relative;overflow:hidden}
-.img-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;width:100%;background:var(--crd)}
-.ig-cell{position:relative;overflow:hidden;aspect-ratio:4/3}
-.ig-cell.ig-empty{background:var(--crd)}
-.ig-wide{grid-column:1/-1;position:relative;overflow:hidden;aspect-ratio:16/5}
-.ig-placeholder{position:absolute;inset:0;background:var(--gm);display:flex;align-items:center;justify-content:center;border:1px dashed rgba(199,168,120,.25)}
-.ig-label{font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:rgba(199,168,120,.4)}
-.ig-cell img,.ig-wide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+html { scroll-behavior: smooth; }
 
-
-/* Section headers — light bg */
-.sh-inline{font-family:'Playfair Display',Georgia,serif;font-size:clamp(28px,3.5vw,46px);font-weight:700;letter-spacing:.01em;color:var(--ink);line-height:1.15;margin-bottom:4px;font-style:normal}
-.sh-inline em{font-style:normal;font-weight:700;color:var(--ink)}
-/* Section headers — dark bg */
-.shl-inline{font-family:'Playfair Display',Georgia,serif;font-size:clamp(28px,3.5vw,46px);font-weight:700;letter-spacing:.01em;color:var(--wh);line-height:1.15;margin-bottom:4px;font-style:normal}
-.shl-inline em{font-style:normal;font-weight:700;color:var(--wh)}
-/* Legacy fallbacks */
-.sh{font-family:'Playfair Display',Georgia,serif;font-size:clamp(28px,3.5vw,46px);font-weight:700;letter-spacing:.01em;color:var(--ink);line-height:1.15;margin-bottom:4px}
-.shl{font-family:'Playfair Display',Georgia,serif;font-size:clamp(28px,3.5vw,46px);font-weight:700;letter-spacing:.01em;color:var(--wh);line-height:1.15;margin-bottom:4px}
-.si2{display:none}.si2l{display:none}
-
-/* JITAKU OP LOCATIE — premium dark section */
-.ol-section{background:var(--gd);padding:140px 80px}
-.ol-divider{background:var(--gd);border-top:1px solid rgba(199,168,120,.15);padding:60px 80px;display:flex;align-items:center;justify-content:space-between;gap:40px}
-.ol-divider-label{font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:rgba(199,168,120,.3)}
-.ol-divider-line{flex:1;height:1px;background:rgba(199,168,120,.12)}
-.ol-divider-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(13px,1.2vw,16px);font-weight:700;color:rgba(199,168,120,.5);letter-spacing:.08em;white-space:nowrap}
-.ol-grid{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:start;margin-top:80px}
-.ol-steps{display:flex;flex-direction:column;gap:0}
-.ol-step{display:grid;grid-template-columns:52px 1fr;padding:28px 0;border-top:1px solid rgba(199,168,120,.1)}
-.ol-step:last-child{border-bottom:1px solid rgba(199,168,120,.1)}
-.ol-step-n{font-family:'Playfair Display',Georgia,serif;font-size:13px;font-style:italic;color:rgba(199,168,120,.45);padding-top:3px}
-.ol-step h3{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;color:var(--wh);margin-bottom:8px}
-.ol-step p{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:14px;color:var(--mu);line-height:1.8}
-.ol-visual{display:flex;flex-direction:column;gap:16px;position:sticky;top:100px}
-.ol-visual-block{background:var(--gm);padding:44px;border:1px solid rgba(199,168,120,.1)}
-.ol-visual-block h4{font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:var(--au);margin-bottom:20px}
-.ol-visual-block ul{list-style:none;display:flex;flex-direction:column;gap:12px}
-.ol-visual-block ul li{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:14px;color:var(--mu);line-height:1.6;padding-left:18px;position:relative}
-.ol-visual-block ul li::before{content:'—';position:absolute;left:0;color:var(--au);font-size:11px}
-.ol-cta{background:var(--g);padding:56px 80px;border-top:1px solid rgba(199,168,120,.12);display:flex;align-items:center;justify-content:space-between;gap:40px}
-.ol-cta-text h3{font-family:'Playfair Display',Georgia,serif;font-size:clamp(20px,2.2vw,30px);font-weight:700;color:var(--wh);margin-bottom:8px}
-.ol-cta-text p{font-family:'Inter',Helvetica,Arial,sans-serif;font-size:14px;color:var(--mu);line-height:1.7;max-width:480px}
-.btn-contact{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:var(--au);padding:18px 48px;text-decoration:none;font-weight:500;transition:background .2s;white-space:nowrap;display:inline-block}
-.btn-contact:hover{background:var(--aul)}
-@media(max-width:960px){
-  .ol-section,.ol-divider,.ol-cta{padding-left:28px;padding-right:28px}
-  .ol-grid{grid-template-columns:1fr}
-  .ol-cta{flex-direction:column;align-items:flex-start}
+body {
+  background: var(--sand);
+  color: var(--text);
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
 }
 
-.logo-svg{height:64px;width:auto;display:block}
-.logo-svg .logo-wordmark path{fill:#fdfcf8}
-nav .logo-svg .logo-wordmark path{fill:#fdfcf8}
+.mw {
+  max-width: 1350px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+}
 
-.locatie-bridge{background:var(--g);padding:120px 80px}
-.locatie-bridge .sh-inline{color:var(--wh)}
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  background: rgba(237,233,223,0.96);
+  backdrop-filter: blur(6px);
+  border-bottom: 0.5px solid rgba(168,136,90,0.15);
+}
+
+.nav-inner {
+  max-width: 1350px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 32px;
+}
+
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 180px;
+}
+
+.logo-line { flex: 1; height: 1px; background: var(--text); }
+
+.logo-kanji {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.logo-wordmark {
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--text);
+  padding-left: 0.42em;
+  text-align: center;
+}
+
+.logo-sub {
+  font-size: 7.5px;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding-left: 0.5em;
+}
+
+.nav-cta {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--text);
+  border: 0.75px solid var(--gold);
+  border-radius: 50px;
+  padding: 7px 18px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  margin-left: auto;
+}
+.nav-cta:hover { background: var(--gold); color: #fff; }
+
+/* ── HERO ── */
+.hero {
+  padding-top: 80px;
+  position: relative;
+  background: var(--sand);
+}
+
+.hero-inner {
+  max-width: 1350px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 42% 58%;
+  align-items: start;
+  position: relative;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 48px 32px 48px;
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 4.2vw, 68px);
+  font-weight: 400;
+  line-height: 1.08;
+  margin-bottom: 28px;
+  white-space: nowrap;
+}
+
+.hero h1 em {
+  font-style: italic;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.hero h1 .g {
+  color: var(--gold);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 0.82em;
+}
+
+.hero-sub {
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--muted);
+}
+
+/* Hero: two-column grid — text left, photo right */
+.hero-inner {
+  max-width: 1350px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 42% 58%;
+  align-items: start;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 48px 32px 48px;
+}
+
+/* Hero photos: two images side by side */
+.hero-photos {
+  margin-top: 120px;
+  margin-right: 24px;
+  margin-left: -20px;
+  padding-bottom: 32px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.hero-photo-1 {
+  width: 40%;
+  aspect-ratio: 5 / 4;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.hero-photo-2 {
+  width: 60%;
+  aspect-ratio: 5 / 4;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.hero-photo-bg {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+/* ── SERVICES BAND ── */
+/* Small left/right margin as seen in screenshots */
+.services-wrap {
+  max-width: 1350px;
+  margin: 32px auto 0;
+  padding: 0 16px;
+}
+
+.services {
+  background: var(--green);
+  border-radius: 14px;
+  min-height: 380px;
+  height: auto;
+  padding: 20px 32px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  align-items: center;
+}
+
+.svc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.svc-icon {
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+}
+
+.svc-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 2.1vw, 27px);
+  font-weight: 500;
+  color: var(--gold-lt);
+}
+
+.svc-desc {
+  font-size: clamp(11px, 1vw, 13px);
+  color: rgba(240,237,229,0.52);
+  line-height: 1.75;
+}
+
+/* ── INSPIRATION ── */
+.inspiration {
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 72px 32px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.inspo-header {
+  padding-right: 24px;
+  position: sticky;
+  top: 100px; /* onder de nav */
+  align-self: start;
+}
+
+.inspo-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(38px, 4.5vw, 58px);
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  color: var(--green);
+}
+
+.inspo-header p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+/* Photo columns */
+.inspo-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.inspo-photo {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Photo columns */
+.inspo-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.inspo-photo {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Kolom 2: 1:1 boven, 3:4 onder */
+.inspo-photo.p1 { aspect-ratio: 1 / 1; }
+.inspo-photo.p2 { aspect-ratio: 3 / 4; }
+
+/* Kolom 3: 3:4 boven, 1:1 onder — spiegelbeeld */
+.inspo-photo.p3 { aspect-ratio: 3 / 4; }
+.inspo-photo.p4 { aspect-ratio: 1 / 1; }
+
+.ig-bg {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+  z-index: 3;
+}
+
+/* Sand-colored placeholder tones */
+.ip1 .ip-bg { background-image: url('https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=600&q=80'); background-position: center top; }
+.ip2 .ip-bg { background-image: url('https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=700&q=80'); background-position: center 30%; }
+.ip3 .ip-bg { background-image: url('https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=500&q=80'); background-position: center 60%; }
+.ip4 .ip-bg { background-image: url('https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=500&q=80'); background-position: center 50%; }
+
+/* ── BOTTOM ── */
+.bottom {
+  margin-top: 64px;
+  position: relative;
+  background: var(--green);
+}
+
+/* Full width green, no border radius, no max-width constraint on background */
+.bottom-card {
+  background: var(--green);
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 80px 32px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  position: relative;
+  align-items: start;
+}
+
+.bl h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 400;
+  color: var(--gold-lt);
+  line-height: 1.15;
+  margin-bottom: 4px;
+}
+
+.bl h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 600;
+  color: rgba(240,237,229,0.95);
+  line-height: 1.15;
+  margin-bottom: 24px;
+}
+
+.bl p {
+  font-size: 15px;
+  color: rgba(240,237,229,0.46);
+  line-height: 1.95;
+  margin-bottom: 28px;
+}
+
+.bl-list-label {
+  font-size: 14px;
+  color: var(--gold-lt);
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.bl-list {
+  list-style: none;
+}
+
+.bl-list li {
+  font-size: 15px;
+  color: rgba(240,237,229,0.46);
+  line-height: 1.85;
+  padding-left: 16px;
+  position: relative;
+  margin-bottom: 6px;
+}
+
+.bl-list li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+/* Kraft form panel — steekt uit boven groene sectie */
+.form-panel {
+  background: var(--kraft);
+  border-radius: 12px;
+  padding: 40px 36px 44px;
+  position: relative;
+  top: -120px;
+  margin-bottom: -120px;
+  box-shadow: 0 16px 56px rgba(0,0,0,0.22);
+  align-self: start;
+}
+
+.form-panel h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--green);
+  margin-bottom: 24px;
+}
+
+.ff { margin-bottom: 14px; }
+
+.ff label {
+  display: block;
+  font-size: 13px;
+  color: rgba(30,46,34,0.58);
+  letter-spacing: 0.05em;
+  margin-bottom: 5px;
+}
+
+.ff input {
+  width: 100%;
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  padding: 11px 13px;
+  background: rgba(240,237,229,0.42);
+  border: 0.5px solid rgba(30,46,34,0.15);
+  border-radius: 5px;
+  color: var(--green);
+  outline: none;
+  transition: background 0.18s;
+}
+
+.ff input::placeholder { color: rgba(30,46,34,0.32); font-size: 14px; }
+.ff input:focus { background: rgba(240,237,229,0.68); }
+
+.phone-row {
+  display: flex;
+  background: rgba(240,237,229,0.42);
+  border: 0.5px solid rgba(30,46,34,0.15);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.phone-flag {
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: rgba(30,46,34,0.65);
+  border-right: 0.5px solid rgba(30,46,34,0.12);
+  white-space: nowrap;
+  height: 38px;
+}
+
+.phone-row input {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  flex: 1;
+  padding: 9px 11px;
+}
+
+.phone-row input:focus { background: transparent; }
+
+.mbts { display: flex; gap: 7px; flex-wrap: wrap; }
+
+.mbt {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 13px;
+  padding: 8px 16px;
+  background: transparent;
+  border: 0.75px solid rgba(30,46,34,0.28);
+  border-radius: 50px;
+  color: var(--green);
+  cursor: pointer;
+  transition: all 0.16s;
+}
+
+.mbt:hover, .mbt.on {
+  background: var(--green);
+  color: rgba(240,237,229,0.92);
+  border-color: var(--green);
+}
+
+.f-submit {
+  width: 100%;
+  margin-top: 10px;
+  font-family: 'Jost', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  padding: 12px;
+  background: var(--green);
+  color: rgba(240,237,229,0.95);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.18s;
+}
+.f-submit:hover { opacity: 0.8; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--green);
+  padding: 14px 32px;
+  display: flex;
+  justify-content: center;
+  border-top: 0.5px solid rgba(168,136,90,0.1);
+}
+
+footer span {
+  font-size: 11px;
+  color: rgba(240,237,229,0.25);
+  letter-spacing: 0.06em;
+}
+
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.in { opacity: 1; transform: none; }
+.d1 { transition-delay: 0.1s; }
+.d2 { transition-delay: 0.22s; }
+.d3 { transition-delay: 0.34s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  nav { padding: 10px 16px; }
+
+  /* Hero: single column, tekst boven foto's */
+  .hero { background: var(--sand); }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content {
+    padding: 32px 20px 24px;
+  }
+
+  .hero h1 {
+    font-size: clamp(32px, 8vw, 48px);
+    white-space: normal;
+  }
+
+  .hero-sub { font-size: 14px; }
+
+  /* Hero photos onder de tekst */
+  .hero-photos {
+    margin-top: 0;
+    margin-right: 0;
+    padding: 0 20px 32px;
+  }
+
+  /* Services: 2 kolommen */
+  .services-wrap { padding: 0 8px; }
+  .services {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 24px 16px;
+    gap: 24px;
+  }
+
+  /* Inspiration */
+  .inspiration {
+    grid-template-columns: 1fr;
+    padding: 48px 16px 0;
+  }
+  .inspo-col { flex-direction: row; }
+  .inspo-photo { aspect-ratio: 1 / 1; }
+
+  /* Bottom form: single column */
+  .bottom-card {
+    grid-template-columns: 1fr;
+    padding: 40px 16px 60px;
+  }
+  .form-panel { top: 0; }
+
+  footer { padding: 12px 16px; }
+}
 </style>
 </head>
 <body>
+
+<!-- NAV -->
 <nav>
-  <a href="#" class="lm od"><svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
-  <g>
-    <path fill="#c7a878" d="M369.48,121.89c-1.03,2.07-3.45,3.45-7.59,3.79-3.79,11.03-9.66,25.86-15.17,38.62h125.17v271.03h-24.14v-18.28h-187.93v20.34h-23.1V164.31h85.52c6.21-15.17,12.41-34.83,15.52-48.62l31.72,6.21ZM447.75,187.06h-187.93v55.17h187.93v-55.17ZM447.75,263.96h-187.93v54.48h187.93v-54.48ZM259.83,394.99h187.93v-54.83h-187.93v54.83Z"/>
-    <path fill="#c7a878" d="M682.25,387.06c0,14.48,4.14,17.59,26.55,17.59h77.93c20,0,23.45-8.97,25.86-54.14,5.86,4.48,15.86,8.62,23.1,10.34-3.79,52.07-11.72,66.55-48.27,66.55h-79.65c-38.96,0-50.34-8.28-50.34-40.34v-62.07l-123.45,15.86-3.45-22.07,126.89-15.86v-57.58c-30.69,7.59-63.1,14.48-93.79,20-1.38-5.52-4.83-14.14-7.59-19.65,67.93-12.76,144.82-32.07,186.89-52.41l21.38,19.66c-1.03,1.03-2.41,1.38-4.14,1.38-1.03,0-2.07,0-3.1-.34-20.34,8.62-46.55,17.24-75.52,25.17l7.59.34c-.34,2.41-2.07,4.14-6.9,4.83v55.52l157.58-20,3.45,21.38-161.03,20.69v65.17ZM564.66,181.2v50h-23.45v-72.41h132.07v-42.76l31.03,2.07c-.34,2.41-2.07,4.14-6.9,4.83v35.86h133.45v72.41h-24.14v-50h-242.07Z"/>
-  </g>
-  <g class="logo-wordmark">
-    <path d="M157.72,759.63h-47.68c-31.19,0-56.74-25.55-56.74-56.74v-23.32h46.49v23.32c0,5.5,4.6,10.1,10.25,10.1h47.68c5.64,0,10.25-4.6,10.25-10.1v-95.5h-92.38v-46.49h138.87v141.99c0,31.19-25.4,56.74-56.74,56.74Z"/>
-    <path d="M283.21,759.63h-46.49v-198.73h46.49v198.73Z"/>
-    <path d="M409.45,759.63h-46.64v-152.24h-57.33v-46.49h161.3v46.49h-57.33v152.24Z"/>
-    <path d="M651.69,759.63h-47.83l-14.56-64.91h-70.25l-14.7,64.91h-47.68l44.71-198.73h105.45l44.86,198.73ZM578.77,648.23l-9.06-40.84h-31.04l-9.21,40.84h49.31Z"/>
-    <path d="M841.94,759.63h-58.07l-58.37-78.42-7.28,7.13v71.29h-46.49v-198.73h46.49v61.64l61.79-61.64h65.8l-87.04,87.04,83.17,111.69Z"/>
-    <path d="M969.96,759.63h-47.83c-31.19,0-56.74-25.55-56.74-56.74v-141.99h46.64v141.99c0,5.5,4.6,10.1,10.1,10.1h47.68c5.64,0,10.25-4.6,10.25-10.1v-141.99h46.64v141.99c0,31.19-25.55,56.59-56.74,56.74Z"/>
-  </g>
-  <g>
-    <path fill="#c7a878" d="M236.72,884.46h52.49v12.84h-19.21v52.6h19.21v12.85h-52.49v-12.85h19.21v-52.6h-19.21v-12.84Z"/>
-    <path fill="#c7a878" d="M358.81,884.57h14.07v78.18h-13.07l-34.62-51.6h-.56v51.6h-13.96v-78.18h12.96l34.73,51.71h.45v-51.71Z"/>
-    <path fill="#c7a878" d="M391.99,884.57h56.96v12.85h-21.44v65.33h-14.07v-65.33h-21.44v-12.85Z"/>
-    <path fill="#c7a878" d="M525.47,949.9v12.85h-52.49v-78.18h51.49v12.96h-37.3v20.33h34.18v11.62h-34.18v20.44h38.31Z"/>
-    <path fill="#c7a878" d="M589.82,931.93l17.2,30.83h-15.52l-16.31-28.82h-12.17v28.82h-14.07v-78.18h30.6c15.3,0,25.46,9.38,25.46,24.68,0,11.17-6.03,19.1-15.19,22.68ZM563.01,921.65h15.52c7.59,0,12.06-4.91,12.06-12.17s-4.47-12.06-12.06-12.06h-15.52v24.23Z"/>
-    <path fill="#c7a878" d="M630.49,884.46h52.49v12.84h-19.21v52.6h19.21v12.85h-52.49v-12.85h19.21v-52.6h-19.21v-12.84Z"/>
-    <path fill="#c7a878" d="M766.65,923.77c0,26.02-13.18,40.54-31.05,40.54s-31.16-14.52-31.16-40.54,13.18-40.65,31.16-40.65,31.05,14.3,31.05,40.65ZM752.57,923.77c0-18.65-7.04-27.7-16.98-27.7s-17.09,9.04-17.09,27.7,7.15,27.7,17.09,27.7,16.98-9.27,16.98-27.7Z"/>
-    <path fill="#c7a878" d="M826.08,931.93l17.2,30.83h-15.52l-16.31-28.82h-12.17v28.82h-14.07v-78.18h30.6c15.3,0,25.46,9.38,25.46,24.68,0,11.17-6.03,19.1-15.19,22.68ZM799.27,921.65h15.52c7.59,0,12.06-4.91,12.06-12.17s-4.47-12.06-12.06-12.06h-15.52v24.23Z"/>
-  </g>
-</svg></a>
-  <ul class="nl"><li><a href="#ww">Werkwijze</a></li><li><a href="#ds">Diensten</a></li><li><a href="jitaku-locatie.html">Op locatie</a></li><li><a href="#contact">Contact</a></li></ul>
+  <div class="nav-inner">
+    <div style="flex:1"></div>
+    <div class="logo">
+      <svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" style="height:64px;width:auto;">
+        <g>
+          <path fill="#c7a878" d="M369.48,121.89c-1.03,2.07-3.45,3.45-7.59,3.79-3.79,11.03-9.66,25.86-15.17,38.62h125.17v271.03h-24.14v-18.28h-187.93v20.34h-23.1V164.31h85.52c6.21-15.17,12.41-34.83,15.52-48.62l31.72,6.21ZM447.75,187.06h-187.93v55.17h187.93v-55.17ZM447.75,263.96h-187.93v54.48h187.93v-54.48ZM259.83,394.99h187.93v-54.83h-187.93v54.83Z"/>
+          <path fill="#c7a878" d="M682.25,387.06c0,14.48,4.14,17.59,26.55,17.59h77.93c20,0,23.45-8.97,25.86-54.14,5.86,4.48,15.86,8.62,23.1,10.34-3.79,52.07-11.72,66.55-48.27,66.55h-79.65c-38.96,0-50.34-8.28-50.34-40.34v-62.07l-123.45,15.86-3.45-22.07,126.89-15.86v-57.58c-30.69,7.59-63.1,14.48-93.79,20-1.38-5.52-4.83-14.14-7.59-19.65,67.93-12.76,144.82-32.07,186.89-52.41l21.38,19.66c-1.03,1.03-2.41,1.38-4.14,1.38-1.03,0-2.07,0-3.1-.34-20.34,8.62-46.55,17.24-75.52,25.17l7.59.34c-.34,2.41-2.07,4.14-6.9,4.83v55.52l157.58-20,3.45,21.38-161.03,20.69v65.17ZM564.66,181.2v50h-23.45v-72.41h132.07v-42.76l31.03,2.07c-.34,2.41-2.07,4.14-6.9,4.83v35.86h133.45v72.41h-24.14v-50h-242.07Z"/>
+        </g>
+        <g>
+          <path fill="#1e2e26" d="M157.72,759.63h-47.68c-31.19,0-56.74-25.55-56.74-56.74v-23.32h46.49v23.32c0,5.5,4.6,10.1,10.25,10.1h47.68c5.64,0,10.25-4.6,10.25-10.1v-95.5h-92.38v-46.49h138.87v141.99c0,31.19-25.4,56.74-56.74,56.74Z"/>
+          <path fill="#1e2e26" d="M283.21,759.63h-46.49v-198.73h46.49v198.73Z"/>
+          <path fill="#1e2e26" d="M409.45,759.63h-46.64v-152.24h-57.33v-46.49h161.3v46.49h-57.33v152.24Z"/>
+          <path fill="#1e2e26" d="M651.69,759.63h-47.83l-14.56-64.91h-70.25l-14.7,64.91h-47.68l44.71-198.73h105.45l44.86,198.73ZM578.77,648.23l-9.06-40.84h-31.04l-9.21,40.84h49.31Z"/>
+          <path fill="#1e2e26" d="M841.94,759.63h-58.07l-58.37-78.42-7.28,7.13v71.29h-46.49v-198.73h46.49v61.64l61.79-61.64h65.8l-87.04,87.04,83.17,111.69Z"/>
+          <path fill="#1e2e26" d="M969.96,759.63h-47.83c-31.19,0-56.74-25.55-56.74-56.74v-141.99h46.64v141.99c0,5.5,4.6,10.1,10.1,10.1h47.68c5.64,0,10.25-4.6,10.25-10.1v-141.99h46.64v141.99c0,31.19-25.55,56.59-56.74,56.74Z"/>
+        </g>
+        <g>
+          <path fill="#c7a878" d="M236.72,884.46h52.49v12.84h-19.21v52.6h19.21v12.85h-52.49v-12.85h19.21v-52.6h-19.21v-12.84Z"/>
+          <path fill="#c7a878" d="M358.81,884.57h14.07v78.18h-13.07l-34.62-51.6h-.56v51.6h-13.96v-78.18h12.96l34.73,51.71h.45v-51.71Z"/>
+          <path fill="#c7a878" d="M391.99,884.57h56.96v12.85h-21.44v65.33h-14.07v-65.33h-21.44v-12.85Z"/>
+          <path fill="#c7a878" d="M525.47,949.9v12.85h-52.49v-78.18h51.49v12.96h-37.3v20.33h34.18v11.62h-34.18v20.44h38.31Z"/>
+          <path fill="#c7a878" d="M589.82,931.93l17.2,30.83h-15.52l-16.31-28.82h-12.17v28.82h-14.07v-78.18h30.6c15.3,0,25.46,9.38,25.46,24.68,0,11.17-6.03,19.1-15.19,22.68ZM563.01,921.65h15.52c7.59,0,12.06-4.91,12.06-12.17s-4.47-12.06-12.06-12.06h-15.52v24.23Z"/>
+          <path fill="#c7a878" d="M630.49,884.46h52.49v12.84h-19.21v52.6h19.21v12.85h-52.49v-12.85h19.21v-52.6h-19.21v-12.84Z"/>
+          <path fill="#c7a878" d="M766.65,923.77c0,26.02-13.18,40.54-31.05,40.54s-31.16-14.52-31.16-40.54,13.18-40.65,31.16-40.65,31.05,14.3,31.05,40.65ZM752.57,923.77c0-18.65-7.04-27.7-16.98-27.7s-17.09,9.04-17.09,27.7,7.15,27.7,17.09,27.7,16.98-9.27,16.98-27.7Z"/>
+          <path fill="#c7a878" d="M826.08,931.93l17.2,30.83h-15.52l-16.31-28.82h-12.17v28.82h-14.07v-78.18h30.6c15.3,0,25.46,9.38,25.46,24.68,0,11.17-6.03,19.1-15.19,22.68ZM799.27,921.65h15.52c7.59,0,12.06-4.91,12.06-12.17s-4.47-12.06-12.06-12.06h-15.52v24.23Z"/>
+        </g>
+      </svg>
+    </div>
+    <div style="flex:1;display:flex;justify-content:flex-end;">
+      <a href="#form" class="nav-cta">Bel me terug</a>
+    </div>
+  </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="ht">
-    <div class="kk"><span class="kl"></span>Interieuradvies op afstand</div>
-    <h1 class="h1">JOUW<br>RUIMTE<br><span class="g">OPNIEUW</span></h1>
-    <span class="hi">bekeken.</span>
-    <p class="hd">Wij analyseren jouw woning op basis van foto's en geven je concrete, visuele plannen voor indeling, sfeer of verbouwing — zonder huisbezoek.</p>
-    <div class="hb"><a href="jitaku-intake.html" class="bg">Start de intake</a><a href="#ww" class="bo">Hoe werkt het?</a></div>
-  </div>
-  <div class="hr">
-    <svg class="hroom" viewBox="0 0 600 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-      <polygon points="140,160 460,160 460,680 140,680" fill="rgba(199,168,120,.04)" stroke="rgba(199,168,120,.12)" stroke-width=".5"/>
-      <polygon points="60,820 140,680 460,680 540,820" fill="rgba(30,46,38,.5)" stroke="rgba(199,168,120,.07)" stroke-width=".5"/>
-      <polygon points="60,80 140,160 140,680 60,820" fill="rgba(199,168,120,.02)" stroke="rgba(199,168,120,.07)" stroke-width=".5"/>
-      <polygon points="540,80 460,160 460,680 540,820" fill="rgba(0,0,0,.1)" stroke="rgba(199,168,120,.05)" stroke-width=".5"/>
-      <polygon points="60,80 140,160 460,160 540,80" fill="rgba(199,168,120,.015)" stroke="rgba(199,168,120,.07)" stroke-width=".5"/>
-      <rect x="195" y="200" width="210" height="320" fill="rgba(199,168,120,.07)" stroke="rgba(199,168,120,.28)" stroke-width=".8"/>
-      <line x1="300" y1="200" x2="300" y2="520" stroke="rgba(199,168,120,.18)" stroke-width=".5"/>
-      <line x1="195" y1="360" x2="405" y2="360" stroke="rgba(199,168,120,.18)" stroke-width=".5"/>
-      <polygon points="220,520 380,520 445,680 155,680" fill="rgba(199,168,120,.04)"/>
-      <rect x="148" y="588" width="225" height="76" fill="rgba(245,240,228,.04)" stroke="rgba(199,168,120,.2)" stroke-width=".6"/>
-      <rect x="148" y="553" width="225" height="42" fill="rgba(245,240,228,.03)" stroke="rgba(199,168,120,.15)" stroke-width=".5"/>
-      <rect x="148" y="553" width="26" height="112" fill="rgba(245,240,228,.03)" stroke="rgba(199,168,120,.12)" stroke-width=".5"/>
-      <rect x="347" y="553" width="26" height="112" fill="rgba(245,240,228,.03)" stroke="rgba(199,168,120,.12)" stroke-width=".5"/>
-      <rect x="174" y="560" width="76" height="32" rx="2" fill="rgba(199,168,120,.1)" stroke="rgba(199,168,120,.18)" stroke-width=".4"/>
-      <rect x="270" y="560" width="76" height="32" rx="2" fill="rgba(199,168,120,.07)" stroke="rgba(199,168,120,.14)" stroke-width=".4"/>
-      <rect x="190" y="664" width="120" height="14" fill="rgba(245,240,228,.03)" stroke="rgba(199,168,120,.12)" stroke-width=".5"/>
-      <line x1="444" y1="670" x2="432" y2="358" stroke="rgba(245,240,228,.14)" stroke-width="1.4"/>
-      <ellipse cx="432" cy="356" rx="38" ry="14" fill="rgba(30,46,38,.9)" stroke="rgba(199,168,120,.2)" stroke-width=".7"/>
-      <ellipse cx="432" cy="430" rx="100" ry="150" fill="rgba(199,168,120,.04)"/>
-      <rect x="460" y="622" width="22" height="50" rx="2" fill="rgba(245,240,228,.03)" stroke="rgba(199,168,120,.1)" stroke-width=".5"/>
-      <ellipse cx="471" cy="618" rx="38" ry="30" fill="rgba(38,77,59,.65)"/>
-      <ellipse cx="452" cy="596" rx="26" ry="24" fill="rgba(30,64,48,.55)"/>
-      <ellipse cx="490" cy="602" rx="22" ry="20" fill="rgba(42,80,62,.5)"/>
-      <text x="460" y="240" font-size="130" font-family="'Noto Serif JP',serif" fill="rgba(199,168,120,.04)" text-anchor="middle">自</text>
-    </svg>
-    <div class="hst">
-      <div class="st"><span class="sn">48u</span><span class="sl">Levertijd plan</span></div>
-      <div class="st"><span class="sn">3+</span><span class="sl">Stijlrichtingen</span></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <h1 class="reveal">
+        <em>"Thuis"</em> <span class="g">is een gevoel,<br>wij geven het vorm</span>
+      </h1>
+      <p class="hero-sub reveal d1">
+        Interieurontwerp voor nieuwbouw en bestaande woningen die toe zijn aan de volgende stap. Van losse ruimtes tot complete woninginrichting, volledig op maat gemaakt.
+      </p>
     </div>
-  </div>
-</section>
-
-<div class="strip"><div class="sr">
-  <div class="si"><span class="sin">I.</span><span class="sit">Interieuradvies zonder huisbezoek</span></div>
-  <div class="si"><span class="sin">II.</span><span class="sit">Concreet plan op basis van foto's</span></div>
-  <div class="si"><span class="sin">III.</span><span class="sit">Meerdere stijlrichtingen naast elkaar</span></div>
-  <div class="si"><span class="sin">IV.</span><span class="sit">Van verbouwing tot sfeeradvies</span></div>
-</div></div>
-
-<section class="ww" id="ww">
-  <div class="rv"><div class="eb">Werkwijze</div><h2 class="sh-inline">Hoe het werkt</h2></div>
-  <div class="wwg">
-    <div class="wws rv">
-      <div class="ws"><span class="wsn">01</span><div><h3>Intake invullen</h3><p>Je vertelt ons over de ruimte: wat er nu staat, wat je wil veranderen en wat je budget is. Duidelijk en zonder vakjargon.</p></div></div>
-      <div class="ws"><span class="wsn">02</span><div><h3>Foto's uploaden</h3><p>Na het invullen van de intake krijg je toegang tot een persoonlijke omgeving. Daar upload je foto's van elke hoek — je telefoon volstaat.</p></div></div>
-      <div class="ws"><span class="wsn">03</span><div><h3>Analyse & uitwerking</h3><p>Ons team bestudeert je ruimte aandachtig: verhoudingen, lichtinval, structuur en mogelijkheden worden zorgvuldig beoordeeld.</p></div></div>
-      <div class="ws"><span class="wsn">04</span><div><h3>Jouw interieurplan</h3><p>Je ontvangt een visueel en concreet plan met meerdere richtingen. Optioneel: een videogesprek om alles samen door te nemen.</p></div></div>
-    </div>
-    <div class="wwv rv" style="transition-delay:.15s;position:relative;aspect-ratio:auto;background:var(--cr);overflow:hidden">
-      <div class="img-grid">
-        <div class="ig-cell"><div class="ig-placeholder"><span class="ig-label">Concept 01</span></div></div>
-        <div class="ig-cell ig-empty"></div>
-        <div class="ig-cell ig-empty"></div>
-        <div class="ig-cell"><div class="ig-placeholder"><span class="ig-label">Concept 02</span></div></div>
-        <div class="ig-cell"><div class="ig-placeholder"><span class="ig-label">Concept 03</span></div></div>
-        <div class="ig-cell ig-empty"></div>
+    <div class="hero-photos">
+      <div class="hero-photo-1">
+        <div class="hero-photo-bg" style="background-image:url('https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=900&q=80');"></div>
+      </div>
+      <div class="hero-photo-2">
+        <div class="hero-photo-bg" style="background-image:url('https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=600&q=80'); background-position: center bottom;"></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="ds" id="ds">
-  <div class="rv"><div class="ebl">Diensten</div><h2 class="shl-inline">Wat we uitwerken</h2></div>
-  <div class="dg rv" style="transition-delay:.1s">
-    <div class="di"><span class="din">01</span><h3>Indelingsadvies</h3><p>Meerdere opstelvarianten op schaal, inclusief looproutes en meubelpropositie per ruimte.</p></div>
-    <div class="di"><span class="din">02</span><h3>Kleur & materiaal</h3><p>Concreet palet met exacte kleurcodes, materiaalsoorten en alternatieven per budget.</p></div>
-    <div class="di"><span class="din">03</span><h3>Moodboard & stijlvisie</h3><p>Visuele vertaling van de gewenste sfeer — als leidraad bij elke aankoop of keuze.</p></div>
-    <div class="di"><span class="din">04</span><h3>Renovatieadvies</h3><p>We visualiseren verbouwopties voordat je een aannemer belt. Geen verrassingen achteraf.</p></div>
-    <div class="di"><span class="din">05</span><h3>Lichtplan</h3><p>Sfeer-, werk- en accentverlichting. Waar welk armatuur past en hoe bestaand licht verbetert.</p></div>
-    <div class="di"><span class="din">06</span><h3>Adviesgesprek</h3><p>Optioneel videogesprek met een interieurspecialist na oplevering van het plan.</p></div>
-  </div>
-</section>
-
-<div class="mf"><div class="rv"><blockquote>"Thuis is een gevoel — <span class="g">wij geven het vorm.</span>"</blockquote><cite>— JITAKU INTERIOR</cite></div></div>
-
-<section class="it" id="intake">
-  <div class="rv"><div class="eb">Beginnen</div><h2 class="sh-inline">Start de intake</h2></div>
-  <div class="iti">
-    <div class="ic rv">
-      <h3>Start vandaag</h3>
-      <p>Vul een kort formulier in over je woning, je wensen en je budget. Daarna krijg je direct toegang tot je persoonlijke omgeving om foto's te uploaden.</p>
-      <p>Geen verplichtingen, geen kosten vooraf. We nemen binnen twee werkdagen contact op.</p>
-
+<!-- SERVICES -->
+<div class="services-wrap">
+  <div class="services reveal">
+    <div class="svc">
+      <svg class="svc-icon" viewBox="0 0 100 100" fill="none">
+        <polygon points="50,6 92,28 50,50 8,28" fill="#2A4035"/>
+        <polygon points="8,28 50,50 50,94 8,72" fill="#1A3025"/>
+        <polygon points="92,28 50,50 50,94 92,72" fill="#243530"/>
+        <rect x="18" y="58" width="16" height="20" rx="1" fill="#3A5545" opacity="0.9"/>
+        <rect x="38" y="66" width="10" height="12" rx="1" fill="#3A5545" opacity="0.7"/>
+        <rect x="58" y="60" width="18" height="20" rx="1" fill="#2E4538" opacity="0.8"/>
+        <line x1="50" y1="50" x2="50" y2="94" stroke="#A8885A" stroke-width="0.5" opacity="0.35"/>
+        <circle cx="70" cy="42" r="3.5" fill="none" stroke="#8ABAAA" stroke-width="0.75" opacity="0.5"/>
+      </svg>
+      <div class="svc-name">Woonkamer</div>
+      <div class="svc-desc">Interieurontwerp voor de woonkamer, afgestemd op jouw leven en huishouden. Precies in de stijl die bij je past.</div>
     </div>
-    <div class="mk rv" style="transition-delay:.15s">
-      <div class="mf2"><span class="ml">Naam</span><div class="mi">Sophie van den Berg</div></div>
-      <div class="mf2"><span class="ml">E-mailadres</span><div class="mi">sophie@email.nl</div></div>
-      <div class="mf2"><span class="ml">Type ruimte</span><div class="mi em">Selecteer...</div></div>
-      <div class="mf2"><span class="ml">Wat wil je veranderen?</span><div class="mi em" style="height:70px;align-items:flex-start;padding-top:12px">Alles voelt wat kaal en rommelig…</div></div>
-      <a href="jitaku-intake.html" class="mb" style="text-decoration:none">Start de intake →</a>
+    <div class="svc">
+      <svg class="svc-icon" viewBox="0 0 100 100" fill="none">
+        <polygon points="50,6 92,28 50,50 8,28" fill="#2A4035"/>
+        <polygon points="8,28 50,50 50,94 8,72" fill="#1A3025"/>
+        <polygon points="92,28 50,50 50,94 92,72" fill="#243530"/>
+        <rect x="16" y="58" width="24" height="14" rx="1" fill="#3A5545" opacity="0.9"/>
+        <rect x="15" y="53" width="26" height="6" rx="1" fill="#4A6550" opacity="0.7"/>
+        <rect x="58" y="60" width="22" height="20" rx="1" fill="#2E4538" opacity="0.8"/>
+        <line x1="50" y1="50" x2="50" y2="94" stroke="#A8885A" stroke-width="0.5" opacity="0.35"/>
+        <rect x="62" y="48" width="6" height="8" rx="1" fill="#5A7560" opacity="0.5"/>
+      </svg>
+      <div class="svc-name">Keuken</div>
+      <div class="svc-desc">Doordacht keukenontwerp voor nieuwbouw en renovaties, met oog voor routing, materiaal en gebruik. Een centrale leefruimte waarin esthetiek en functionaliteit in balans zijn.</div>
     </div>
-  </div>
-</section>
-
-<section class="es">
-  <div class="rv"><div class="eb">Ervaringen</div><h2 class="sh-inline">Wat klanten zeggen</h2></div>
-  <div class="eg rv" style="transition-delay:.1s">
-    <div class="ev"><p class="eq">"Ik heb jarenlang niet geweten hoe ik mijn woonkamer moest aanpakken. Het plan van JITAKU was concreet, betaalbaar en volledig op mijn situatie afgestemd."</p><span class="en">Sophie R.<span class="ec">Utrecht</span></span></div>
-    <div class="ev"><p class="eq">"We wilden een open keuken maar wisten niet of het kon. JITAKU visualiseerde drie opties. Het gesprek met onze aannemer verliep daarna een stuk makkelijker."</p><span class="en">Mark & Ines V.<span class="ec">Amsterdam</span></span></div>
-    <div class="ev"><p class="eq">"Ik verwachtte vage inspiratie, maar kreeg een echt plan: kleurnummers, meubelmaten, lichtpunten. Precies wat ik nodig had om te beginnen."</p><span class="en">Lena K.<span class="ec">Arnhem</span></span></div>
-  </div>
-</section>
-
-
-
-<!-- LOCATIE CTA -->
-<div class="locatie-bridge">
-  <div class="rv">
-    <p style="font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--aud);margin-bottom:16px">Meer nodig?</p>
-    <h2 class="sh-inline" style="margin-bottom:16px">JITAKU op locatie</h2>
-    <p style="font-family:'Inter',Helvetica,Arial,sans-serif;font-size:15px;color:#5a5040;line-height:1.8;max-width:520px;margin-bottom:32px">Van plint tot plafond volledig uitgewerkt — wij komen bij je thuis, meten in en leveren fotorealistische 3D renders en werktekeningen.</p>
-    <a href="jitaku-locatie.html" class="bg">Bekijk het volledige traject →</a>
+    <div class="svc">
+      <img src="Badkamer.png" class="svc-icon" style="width:110px;height:110px;object-fit:contain;mix-blend-mode:screen;background:transparent;" alt="Badkamer">
+      <div class="svc-name">Badkamer</div>
+      <div class="svc-desc">Badkamerontwerp met focus op indeling, rust en comfort. Slim ontworpen voor zowel nieuwe woningen als renovaties.</div>
+    </div>
+    <div class="svc">
+      <svg class="svc-icon" viewBox="0 0 100 100" fill="none">
+        <polygon points="50,6 92,28 50,50 8,28" fill="#2A4035"/>
+        <polygon points="8,28 50,50 50,94 8,72" fill="#1A3025"/>
+        <polygon points="92,28 50,50 50,94 92,72" fill="#243530"/>
+        <rect x="14" y="56" width="14" height="20" rx="1" fill="#3A5545" opacity="0.9"/>
+        <rect x="32" y="66" width="10" height="10" rx="1" fill="#3A5545" opacity="0.6"/>
+        <rect x="58" y="54" width="20" height="26" rx="1" fill="#2E4538" opacity="0.8"/>
+        <line x1="50" y1="50" x2="50" y2="94" stroke="#A8885A" stroke-width="0.5" opacity="0.35"/>
+        <line x1="8" y1="60" x2="50" y2="72" stroke="#A8885A" stroke-width="0.3" opacity="0.25"/>
+      </svg>
+      <div class="svc-name">Woning</div>
+      <div class="svc-desc">Interieurontwerp voor complete woningen, zowel nieuwbouw als bestaande huizen. Eén totaalconcept waarin alle ruimtes op elkaar aansluiten en jouw manier van leven centraal staat.</div>
+    </div>
   </div>
 </div>
 
-<footer
-
-<footer id="contact">
-  <div class="ft">
-    <div class="fb">
-      <a href="#" class="lm od" style="align-items:flex-start"><svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
-  <g>
-    <path fill="#c7a878" d="M369.48,121.89c-1.03,2.07-3.45,3.45-7.59,3.79-3.79,11.03-9.66,25.86-15.17,38.62h125.17v271.03h-24.14v-18.28h-187.93v20.34h-23.1V164.31h85.52c6.21-15.17,12.41-34.83,15.52-48.62l31.72,6.21ZM447.75,187.06h-187.93v55.17h187.93v-55.17ZM447.75,263.96h-187.93v54.48h187.93v-54.48ZM259.83,394.99h187.93v-54.83h-187.93v54.83Z"/>
-    <path fill="#c7a878" d="M682.25,387.06c0,14.48,4.14,17.59,26.55,17.59h77.93c20,0,23.45-8.97,25.86-54.14,5.86,4.48,15.86,8.62,23.1,10.34-3.79,52.07-11.72,66.55-48.27,66.55h-79.65c-38.96,0-50.34-8.28-50.34-40.34v-62.07l-123.45,15.86-3.45-22.07,126.89-15.86v-57.58c-30.69,7.59-63.1,14.48-93.79,20-1.38-5.52-4.83-14.14-7.59-19.65,67.93-12.76,144.82-32.07,186.89-52.41l21.38,19.66c-1.03,1.03-2.41,1.38-4.14,1.38-1.03,0-2.07,0-3.1-.34-20.34,8.62-46.55,17.24-75.52,25.17l7.59.34c-.34,2.41-2.07,4.14-6.9,4.83v55.52l157.58-20,3.45,21.38-161.03,20.69v65.17ZM564.66,181.2v50h-23.45v-72.41h132.07v-42.76l31.03,2.07c-.34,2.41-2.07,4.14-6.9,4.83v35.86h133.45v72.41h-24.14v-50h-242.07Z"/>
-  </g>
-  <g class="logo-wordmark">
-    <path d="M157.72,759.63h-47.68c-31.19,0-56.74-25.55-56.74-56.74v-23.32h46.49v23.32c0,5.5,4.6,10.1,10.25,10.1h47.68c5.64,0,10.25-4.6,10.25-10.1v-95.5h-92.38v-46.49h138.87v141.99c0,31.19-25.4,56.74-56.74,56.74Z"/>
-    <path d="M283.21,759.63h-46.49v-198.73h46.49v198.73Z"/>
-    <path d="M409.45,759.63h-46.64v-152.24h-57.33v-46.49h161.3v46.49h-57.33v152.24Z"/>
-    <path d="M651.69,759.63h-47.83l-14.56-64.91h-70.25l-14.7,64.91h-47.68l44.71-198.73h105.45l44.86,198.73ZM578.77,648.23l-9.06-40.84h-31.04l-9.21,40.84h49.31Z"/>
-    <path d="M841.94,759.63h-58.07l-58.37-78.42-7.28,7.13v71.29h-46.49v-198.73h46.49v61.64l61.79-61.64h65.8l-87.04,87.04,83.17,111.69Z"/>
-    <path d="M969.96,759.63h-47.83c-31.19,0-56.74-25.55-56.74-56.74v-141.99h46.64v141.99c0,5.5,4.6,10.1,10.1,10.1h47.68c5.64,0,10.25-4.6,10.25-10.1v-141.99h46.64v141.99c0,31.19-25.55,56.59-56.74,56.74Z"/>
-  </g>
-  <g>
-    <path fill="#c7a878" d="M236.72,884.46h52.49v12.84h-19.21v52.6h19.21v12.85h-52.49v-12.85h19.21v-52.6h-19.21v-12.84Z"/>
-    <path fill="#c7a878" d="M358.81,884.57h14.07v78.18h-13.07l-34.62-51.6h-.56v51.6h-13.96v-78.18h12.96l34.73,51.71h.45v-51.71Z"/>
-    <path fill="#c7a878" d="M391.99,884.57h56.96v12.85h-21.44v65.33h-14.07v-65.33h-21.44v-12.85Z"/>
-    <path fill="#c7a878" d="M525.47,949.9v12.85h-52.49v-78.18h51.49v12.96h-37.3v20.33h34.18v11.62h-34.18v20.44h38.31Z"/>
-    <path fill="#c7a878" d="M589.82,931.93l17.2,30.83h-15.52l-16.31-28.82h-12.17v28.82h-14.07v-78.18h30.6c15.3,0,25.46,9.38,25.46,24.68,0,11.17-6.03,19.1-15.19,22.68ZM563.01,921.65h15.52c7.59,0,12.06-4.91,12.06-12.17s-4.47-12.06-12.06-12.06h-15.52v24.23Z"/>
-    <path fill="#c7a878" d="M630.49,884.46h52.49v12.84h-19.21v52.6h19.21v12.85h-52.49v-12.85h19.21v-52.6h-19.21v-12.84Z"/>
-    <path fill="#c7a878" d="M766.65,923.77c0,26.02-13.18,40.54-31.05,40.54s-31.16-14.52-31.16-40.54,13.18-40.65,31.16-40.65,31.05,14.3,31.05,40.65ZM752.57,923.77c0-18.65-7.04-27.7-16.98-27.7s-17.09,9.04-17.09,27.7,7.15,27.7,17.09,27.7,16.98-9.27,16.98-27.7Z"/>
-    <path fill="#c7a878" d="M826.08,931.93l17.2,30.83h-15.52l-16.31-28.82h-12.17v28.82h-14.07v-78.18h30.6c15.3,0,25.46,9.38,25.46,24.68,0,11.17-6.03,19.1-15.19,22.68ZM799.27,921.65h15.52c7.59,0,12.06-4.91,12.06-12.17s-4.47-12.06-12.06-12.06h-15.52v24.23Z"/>
-  </g>
-</svg></a>
-      <p>Online interieuradvies op afstand — concreet, snel en zonder huisbezoek.</p>
-    </div>
-    <div class="fc"><h4>Navigatie</h4><ul><li><a href="#ww">Werkwijze</a></li><li><a href="#ds">Diensten</a></li><li><a href="jitaku-intake.html">Intake starten</a></li><li><a href="jitaku-locatie.html">Op locatie</a></li></ul></div>
-    <div class="fc"><h4>Bedrijf</h4><ul><li><a href="#">Over JITAKU</a></li><li><a href="#">Ons team</a></li></ul></div>
-    <div class="fc"><h4>Contact</h4><ul><li><a href="mailto:hallo@jitaku.nl">hallo@jitaku.nl</a></li><li><a href="#">Instagram</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+<!-- INSPIRATION -->
+<section class="inspiration">
+  <div class="inspo-header reveal">
+    <h2>Laat je inspireren</h2>
+    <p>Voor interieurs die toe zijn aan de volgende stap.<br>Keuken, woonkamer of badkamer, ontworpen voor wie jij bent.</p>
   </div>
-  <div class="fbo"><p>©️ 2026 JITAKU INTERIOR</p><p>Privacybeleid · Algemene voorwaarden</p></div>
+
+  <div class="inspo-col reveal d1">
+    <div class="inspo-photo p1">
+      <div class="ig-bg" style="background-image:url('https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=700&q=80');"></div>
+    </div>
+    <div class="inspo-photo p2">
+      <div class="ig-bg" style="background-image:url('https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=700&q=80'); background-position: center 70%;"></div>
+    </div>
+  </div>
+
+  <div class="inspo-col reveal d2">
+    <div class="inspo-photo p3">
+      <div class="ig-bg" style="background-image:url('https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=700&q=80'); background-position: center 30%;"></div>
+    </div>
+    <div class="inspo-photo p4">
+      <div class="ig-bg" style="background-image:url('https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=700&q=80'); background-position: center 50%;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM -->
+<section class="bottom" id="form">
+  <div class="bottom-card">
+    <div class="bl reveal">
+      <h2>Hulp nodig bij het interieurontwerp van je woning?</h2>
+      <h3>Laat ons je helpen!</h3>
+      <p>Plan een vrijblijvend gesprek en ontdek wat we voor jouw huis kunnen betekenen. Altijd buiten kantooruren op een moment wanneer het voor jou het beste uit komt.</p>
+      <span class="bl-list-label">Dit is Jitaku:</span>
+      <ul class="bl-list">
+        <li>100% menselijk contact</li>
+        <li>We gebruiken AI als hulptool, niet om de plannen te creëren</li>
+        <li>Alles is maatwerk, ook je ontwerppakket</li>
+        <li>Wij ontwerpen iets dat bij jou past</li>
+      </ul>
+    </div>
+
+    <div class="form-panel reveal d1">
+      <h3>Terugbelverzoek</h3>
+      <div class="ff">
+        <label>Wie mogen we bellen *</label>
+        <input type="text" placeholder="Voor- & achternaam">
+      </div>
+      <div class="ff">
+        <label>Wie mogen we bellen? *</label>
+        <div class="phone-row">
+          <div class="phone-flag">🇳🇱 +31</div>
+          <input type="tel" placeholder="Telefoonnummer">
+        </div>
+      </div>
+      <div class="ff">
+        <label>Wat komt het beste uit? *</label>
+        <div class="mbts">
+          <button class="mbt" onclick="this.classList.toggle('on')">In de avond</button>
+          <button class="mbt" onclick="this.classList.toggle('on')">in het Weekend</button>
+          <button class="mbt" onclick="this.classList.toggle('on')">Beide</button>
+          <button class="mbt" onclick="this.classList.toggle('on')">Anders</button>
+        </div>
+      </div>
+      <div class="ff">
+        <label>Om welke ruimte(s) gaat het *</label>
+        <input type="text" placeholder="bijv. Woonkamer, Gang, Keuken">
+      </div>
+      <div class="ff">
+        <label>Waar staat je woning *</label>
+        <input type="text" placeholder="bijv. Helmond, Brandevoort">
+      </div>
+      <button class="f-submit">Verzenden</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 – Jitaku Interior</span>
 </footer>
+
 <script>
-const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')}),{threshold:.07});
-document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+window.addEventListener('load', () => {
+  document.querySelectorAll('.hero .reveal').forEach((el, i) => {
+    setTimeout(() => el.classList.add('in'), i * 180);
+  });
+});
+
+// Moment buttons
+document.querySelectorAll('.mbt').forEach(btn => {
+  btn.addEventListener('click', () => btn.classList.toggle('on'));
+});
 </script>
 </body>
 </html>
